@@ -1,8 +1,8 @@
-package mainFunction;
+package function;
 
 import java.util.Scanner;
 
-public class MPfunction {
+public class Mainpage {
 
 	public String login() {
 		// TODO Auto-generated method stub
@@ -26,6 +26,7 @@ public class MPfunction {
 	
 	//for checking username and password
 	public boolean check(String username, String password){
+		//readfile to check
 		return true;
 	}
 	
@@ -38,6 +39,12 @@ public class MPfunction {
 	
 	//register
 	public static void register(){
+		
+		System.out.println("Please enter your username");
+		System.out.println("Please enter your password");
+		System.out.println("Please enter your full name");
+		System.out.println("Please enter your company address");
+		System.out.println("Please enter your contact number");
 		
 	}
 

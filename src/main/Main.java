@@ -1,8 +1,10 @@
-package mainFunction;
+package main;
 
 import java.util.*;
 
 import com.sun.org.apache.xpath.internal.functions.Function;
+
+import function.Mainpage;
 
 public class Main {
 
@@ -20,20 +22,24 @@ public class Main {
 			
 			Scanner sc = new Scanner(System.in);
 			String select = sc.nextLine();
-			MPfunction fc = new MPfunction();
+			function.Mainpage mp = new Mainpage();
 		
 			switch(select){
 				//login
 				case "1":{
-					fc.login();
+					mp.login();
 					check = true;
+					
+					//after login, should continue to user function
 					break;
 				}
 				
 				//register
 				case "2":{
-					fc.register();
+					mp.register();
 					check = true;
+					
+					//after register, should return here for login
 					break;
 				}
 				
