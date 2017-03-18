@@ -27,6 +27,6 @@ public class Customer extends User{
 	}
 	
 	public String toString(){
-		return super.toString() + ":" + name + address + cNumber;
+		return super.toString() + ":" + name + ":" + address + ":" + cNumber;
 	}
 }

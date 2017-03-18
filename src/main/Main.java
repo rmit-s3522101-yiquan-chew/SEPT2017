@@ -1,14 +1,16 @@
 package main;
 
+import java.io.IOException;
 import java.util.*;
 
 import com.sun.org.apache.xpath.internal.functions.Function;
 
 import function.Mainpage;
+import user.User;
 
 public class Main {
-
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
 		boolean check = false;
@@ -24,35 +26,49 @@ public class Main {
 			String select = sc.nextLine();
 			function.Mainpage mp = new Mainpage();
 		
-			switch(select){
-				//login
-				case "1":{
-					mp.login();
-					check = true;
+			try {
+				switch(select){
+					//login
+					case "1":{
+						User user = mp.login();
+						
+						//after login, should continue to user function
+						if((Mainpage.lStatus).equals("owner")){
+							//owner function
+							System.out.println(user.toString());
+						}
+						else if((Mainpage.lStatus).equals("customer")){
+							//customer function
+							System.out.println(user.toString());
+						}
+						
+						check = true;
+						break;
+					}
 					
-					//after login, should continue to user function
-					break;
-				}
-				
-				//register
-				case "2":{
-					mp.register();
-					check = true;
+					//register
+					case "2":{
+						mp.register();
+						check = true;
+						
+						//after register, should return here for login
+						break;
+					}
 					
-					//after register, should return here for login
-					break;
+					case "0":{
+						System.out.println("Thank you for using the system");
+						System.exit(0);
+					}
+					
+					default:
+					{
+						System.out.println("Invalid selection.");
+						check = true;
+					}
 				}
-				
-				case "0":{
-					System.out.println("Thank you for using the system");
-					System.exit(0);
-				}
-				
-				default:
-				{
-					System.out.println("Invalid selection.");
-					check = true;
-				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		while(check);
