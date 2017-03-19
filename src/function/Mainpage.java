@@ -25,11 +25,12 @@ public class Mainpage {
 		System.out.println("Please enter your password");
 		password = sc.nextLine();
 		
+		System.out.println("");
 		//check username and password
 		lStatus = check(username, password);
 		
 		if(lStatus.equals("owner") || lStatus.equals("customer")){
-			System.out.println("Welcome " + loginUser.getUsername());			
+			System.out.println("Welcome " + loginUser.getUsername() + "(Business Owner)");			
 			return loginUser;
 		}
 		else
@@ -52,7 +53,7 @@ public class Mainpage {
 				if((owner[i].getPassword()).equals(password)){
 					loginUser = owner[i];
 					status = "owner";
-					System.out.println(loginUser.toString());
+					//System.out.println(loginUser.toString());
 				}
 			}
 		}
