@@ -6,6 +6,8 @@ import java.util.*;
 import com.sun.org.apache.xpath.internal.functions.Function;
 
 import function.Mainpage;
+import function.Owner;
+import function.Customer;
 import user.User;
 
 public class Main {
@@ -25,7 +27,8 @@ public class Main {
 			Scanner sc = new Scanner(System.in);
 			String select = sc.nextLine();
 			function.Mainpage mp = new Mainpage();
-		
+			function.Owner bo = new Owner();
+			function.Customer c = new Customer();
 			try {
 				switch(select){
 					//login
@@ -35,11 +38,13 @@ public class Main {
 						//after login, should continue to user function
 						if((Mainpage.lStatus).equals("owner")){
 							//owner function
-							System.out.println(user.toString());
+							bo.OwnerSelecton();
+							//System.out.println(user.toString());
 						}
 						else if((Mainpage.lStatus).equals("customer")){
 							//customer function
-							System.out.println(user.toString());
+							c.CustomerSelecton();
+							//System.out.println(user.toString());
 						}
 						
 						check = true;
