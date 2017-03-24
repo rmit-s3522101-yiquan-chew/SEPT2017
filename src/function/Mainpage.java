@@ -8,9 +8,7 @@ import user.Owner;
 import main.Data;
 
 public class Mainpage {
-	/*This class is used for authorization and authentication
-	 * v0.1.2 -simple login and register
-	 */
+	
 	public static User loginUser;
 	public static String lStatus;
 
@@ -32,7 +30,7 @@ public class Mainpage {
 		lStatus = check(username, password);
 		
 		if(lStatus.equals("owner") || lStatus.equals("customer")){
-			System.out.println("Welcome " + loginUser.getUsername());			
+			System.out.println("Welcome " + loginUser.getUsername() + "(Business Owner)");			
 			return loginUser;
 		}
 		else
@@ -43,7 +41,6 @@ public class Mainpage {
 	
 	//for checking username and password
 	public String check(String username, String password) throws IOException{
-		
 		//readfile to check
 		Owner[] owner = Data.ownerArray("business.txt");
 		Customer[] customer = Data.customerArray("customerinfo.txt");
@@ -56,6 +53,7 @@ public class Mainpage {
 				if((owner[i].getPassword()).equals(password)){
 					loginUser = owner[i];
 					status = "owner";
+					//System.out.println(loginUser.toString());
 				}
 			}
 		}
@@ -66,6 +64,7 @@ public class Mainpage {
 				if((customer[j].getPassword()).equals(password)){
 					loginUser = customer[j];
 					status = "customer";
+					//System.out.println(loginUser.toString());
 				}
 			}
 		}

@@ -1,17 +1,21 @@
 package function;
 
-public abstract class Booking {
+public class Booking {
 	
-	protected String bookdate;
-	protected String booktime;
+	private String bookdate;
+	private String booktime;
+	private String bookemployee;
+	private String bookname;
 	
-	public Booking(String bookdate,String booktime){
-		this.setbookdate(bookdate);
-		this.setbooktime(booktime);
+	public Booking(String bookname, String bookdate,String booktime,String bookemployee){
+		this.bookemployee = bookname;
+		this.bookdate = bookdate;
+		this.booktime = booktime;
+		this.bookname = bookemployee;
 	}
 	
-	public String toString(){
-		return getBookDate() + ":" + getBookTime();
+	public String getBookemployee() {
+		return bookemployee;
 	}
 
 	public String getBookDate() {
@@ -22,12 +26,10 @@ public abstract class Booking {
 		return booktime;
 	}
 	
-	public void setbookdate(String bookdate) {
-		this.bookdate = bookdate;
-	} 
+	public String getBookName() {
+		return bookname;
+	}
 	
-	public void setbooktime(String booktime) {
-		this.booktime = booktime;
-	} 
+	
 
 }

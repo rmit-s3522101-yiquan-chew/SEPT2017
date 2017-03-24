@@ -6,6 +6,7 @@ public class Employee {
 	
 	public Employee(String Employeename){
 		this.Employeename = Employeename;	
+		
 	}
 	
 	public String toString(){
@@ -15,5 +16,6 @@ public class Employee {
 	public String getEmployeename() {
 		return Employeename;
 	}
+	
 	
 }

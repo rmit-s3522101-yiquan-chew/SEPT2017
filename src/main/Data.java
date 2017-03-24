@@ -72,6 +72,35 @@ public class Data {
 		br.close();
 		return customer;
 	}
+	
+	public static Employee[] employeeArray(String fileName) throws IOException {
+		Employee[] employee = new Employee[50];
+		
+		String line;
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		
+		while((line = br.readLine()) != null){
+			StringTokenizer inReader = new StringTokenizer(line, ":");
+			
+			int newEmployee = -1;
+			for( int i = 0; i < employee.length;i++)
+			{
+				if( employee[i] == null )
+				{
+					newEmployee = i;
+					break;
+				}		
+			}
+			
+			if(inReader.countTokens() == 5){
+				String Employeename = inReader.nextToken();
+				
+				employee[newEmployee] = new Employee(Employeename);
+			}
+		}
+		br.close();
+		return employee;
+	}
 		
 	//booking.txt?
 }
