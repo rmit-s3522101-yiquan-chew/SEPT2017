@@ -101,6 +101,10 @@ public class Data {
 		br.close();
 		return employee;
 	}
+	
+	public static void removeUser(User user, String filename){
 		
+	}
+	
 	//booking.txt?
 }

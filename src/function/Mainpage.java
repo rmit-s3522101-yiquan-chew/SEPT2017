@@ -30,7 +30,7 @@ public class Mainpage {
 		lStatus = check(username, password);
 		
 		if(lStatus.equals("owner") || lStatus.equals("customer")){
-			System.out.println("Welcome " + loginUser.getUsername() + "(Business Owner)");			
+			System.out.println("Welcome " + loginUser.getUsername());			
 			return loginUser;
 		}
 		else

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import user.*;
 
-public class Customer {
+public class CustomerFunction {
 	public User CustomerSelecton(){
 		
 		boolean check = false;
@@ -22,11 +22,11 @@ public class Customer {
 			switch(select){
 				
 				case "1":{
-					Customer.ViewDatetime();
+					CustomerFunction.ViewDatetime();
 					return CustomerSelecton();
 				}
 				case "2":{
-					Customer.AddBooking();
+					CustomerFunction.AddBooking();
 					return CustomerSelecton();
 				}
 				case "0":{

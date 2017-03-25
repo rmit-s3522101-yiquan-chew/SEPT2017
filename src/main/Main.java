@@ -6,8 +6,8 @@ import java.util.*;
 import com.sun.org.apache.xpath.internal.functions.Function;
 
 import function.Mainpage;
-import function.Owner;
-import function.Customer;
+import function.OwnerFunction;
+import function.CustomerFunction;
 import user.User;
 
 public class Main {
@@ -27,8 +27,8 @@ public class Main {
 			Scanner sc = new Scanner(System.in);
 			String select = sc.nextLine();
 			function.Mainpage mp = new Mainpage();
-			function.Owner bo = new Owner();
-			function.Customer c = new Customer();
+			function.OwnerFunction bo = new OwnerFunction();
+			function.CustomerFunction c = new CustomerFunction();
 			try {
 				switch(select){
 					//login

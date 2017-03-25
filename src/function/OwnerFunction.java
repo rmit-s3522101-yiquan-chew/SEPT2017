@@ -6,7 +6,7 @@ import java.util.Scanner;
 import user.*;
 
 
-public class Owner {
+public class OwnerFunction {
 
 	public User OwnerSelecton(){
 		
@@ -27,23 +27,23 @@ public class Owner {
 			switch(select){
 				
 				case "1":{
-					Owner.AddEmployee();
+					OwnerFunction.AddEmployee();
 					return OwnerSelecton();
 				}
 				case "2":{
-					Owner.AddDateTime();
+					OwnerFunction.AddDateTime();
 					return OwnerSelecton();
 				}
 				case "3":{
-					Owner.ViewAllBooking();
+					OwnerFunction.ViewAllBooking();
 					return OwnerSelecton();
 				}
 				case "4":{
-					Owner.ViewNewbooking();
+					OwnerFunction.ViewNewbooking();
 					return OwnerSelecton();
 				}
 				case "5":{
-					Owner.ViewWorkerAvailabilityDate();
+					OwnerFunction.ViewWorkerAvailabilityDate();
 					return OwnerSelecton();
 				}
 				case "0":{
