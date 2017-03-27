@@ -6,7 +6,11 @@ import java.util.Scanner;
 import user.*;
 
 public class CustomerFunction {
-	public User CustomerSelecton(){
+	
+	private Customer customer;
+	
+	public Customer CustomerSelection(Customer customer){
+		this.customer = customer;
 		
 		boolean check = false;
 		do{
@@ -23,11 +27,11 @@ public class CustomerFunction {
 				
 				case "1":{
 					CustomerFunction.ViewDatetime();
-					return CustomerSelecton();
+					return CustomerSelection(customer);
 				}
 				case "2":{
-					CustomerFunction.AddBooking();
-					return CustomerSelecton();
+					CustomerFunction.AddBooking(customer);
+					return CustomerSelection(customer);
 				}
 				case "0":{
 					System.out.println("Your account has been exited");
@@ -49,55 +53,33 @@ public class CustomerFunction {
 		}
 		while(check);
 		return null;
-		
 	}
 	
-	public static void AddBooking() throws IOException{
+	public static void AddBooking(Customer customer) throws IOException{
+		
 		FileWriter fw = new FileWriter("booking.txt",true);
 		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Please enter Customer name");
-		String newbookname = sc.nextLine();
 		System.out.println("Please enter Booking date (DD/MM/YYYY)");
 		String newbookdate = sc.nextLine();
 		System.out.println("Please enter Booking time (hh/min)");
 		String newbooktime = sc.nextLine();
 		System.out.println("Please enter Employee name");
 		String newbookemployee = sc.nextLine();
-		
-		//Booking newBooking = new Booking(newbookname,newbookdate,newbooktime,newbookemployee); 
+
+		pw.println(customer.getName() +":"+newbookdate + ":" + newbooktime+":"+newbookemployee);		
 		System.out.println("Your new booking has been added");
 		System.out.println("");
 		
-		pw.println("|Customer name \t"+"|Booking Date\t"+"|Booking Time\t"+"|Reponsible Employee");
-		pw.println("------------------------------------------------------------------------------------");
-		pw.println("|"+newbookname+"\t\t|"+newbookdate + "\t|" + newbooktime+"\t\t|"+newbookemployee);
-		pw.println("");
 		pw.close();
 	}
 	
 	
-	public static void ViewDatetime() 
+	public static void ViewDatetime() throws FileNotFoundException, IOException 
 	{
-		String fileName = "employee.txt";
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            while((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }   
-            bufferedReader.close();         
-        }
-        catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");                
-        }
-        catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");                  
-        }
+		GeneralFunction.employeeAvailability();
 	}
 	
 	

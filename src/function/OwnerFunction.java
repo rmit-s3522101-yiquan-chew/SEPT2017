@@ -8,16 +8,15 @@ import user.*;
 
 public class OwnerFunction {
 
-	public User OwnerSelecton(){
+	public Owner OwnerSelection(Owner owner){
 		
 		boolean check = false;
 		do{
 		System.out.println(" ");
 		System.out.println("1. Add Employee");
-		System.out.println("2. Add Working Date/Time");
-		System.out.println("3. View Summaries booking"); 	//calculate the booking
-		System.out.println("4. View New booking");  		// show new booking
-		System.out.println("5. View All workers' availability date");
+		System.out.println("2. View Summaries booking"); 	//calculate the booking
+		System.out.println("3. View New booking");  		// show new booking
+		System.out.println("4. View All workers' availability date");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
 		Scanner sc = new Scanner(System.in);
@@ -28,23 +27,19 @@ public class OwnerFunction {
 				
 				case "1":{
 					OwnerFunction.AddEmployee();
-					return OwnerSelecton();
+					return OwnerSelection(owner);
 				}
 				case "2":{
-					OwnerFunction.AddDateTime();
-					return OwnerSelecton();
+					GeneralFunction.viewAllBookingDetails();
+					return OwnerSelection(owner);
 				}
 				case "3":{
-					OwnerFunction.ViewAllBooking();
-					return OwnerSelecton();
+					OwnerFunction.ViewNewbooking();
+					return OwnerSelection(owner);
 				}
 				case "4":{
-					OwnerFunction.ViewNewbooking();
-					return OwnerSelecton();
-				}
-				case "5":{
 					OwnerFunction.ViewWorkerAvailabilityDate();
-					return OwnerSelecton();
+					return OwnerSelection(owner);
 				}
 				case "0":{
 					System.out.println("Your account has been exited");
@@ -66,7 +61,6 @@ public class OwnerFunction {
 		}
 		while(check);
 		return null;
-		
 	}
 	
 	public static void AddEmployee() throws IOException{
@@ -76,53 +70,20 @@ public class OwnerFunction {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Please enter Employee name");
-		String Employeename = sc.nextLine();
-		
-		Employee Employee = new Employee (Employeename); //Need to create user Employee
-		System.out.println("Your new employee has been added");
-		System.out.println("");
-		pw.println(Employee.toString());
-		pw.close();
-	}
-	
-	public static void AddDateTime() throws IOException{
-		FileWriter fw = new FileWriter("employee.txt",true);
-		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-		
-		Scanner sc = new Scanner(System.in);
+		String employeeName = sc.nextLine();
 		
 		System.out.println("Please enter the working time (Hr/Min)");
 		String newTime = sc.nextLine();
+		
 		System.out.println("Please enter the working date (DD/MM/YYYY)");
 		String newDate = sc.nextLine();
 		
-		DateTime newDateTime = new DateTime(newTime,newDate); 
-		System.out.println("The new working time and date has/have been added");
+		Employee Employee = new Employee (employeeName, newDate, newTime); //Need to create user Employee
+		
+		pw.println(Employee.toString());
+		System.out.println("New employee " + Employee.getEmployeeName() + " has been added");
 		System.out.println("");
-		pw.println(newDateTime.toString());
-		pw.println("");
 		pw.close();
-	}
-	
-	public static void ViewAllBooking() 
-	{
-		String fileName = "booking.txt";
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            while((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }   
-            bufferedReader.close();         
-        }
-        catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");                
-        }
-        catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");                  
-        }
 	}
 	
 	public static void ViewNewbooking() throws IOException 
@@ -143,25 +104,9 @@ public class OwnerFunction {
 		System.out.println("lastsecline= "+lastsecline);
 	}
 	
-	public static void ViewWorkerAvailabilityDate() 
+	public static void ViewWorkerAvailabilityDate() throws FileNotFoundException, IOException 
 	{
-		String fileName = "employee.txt";
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            while((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }   
-            bufferedReader.close();         
-        }
-        catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");                
-        }
-        catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");                  
-        }
+		GeneralFunction.employeeAvailability();
 	}
 	
 }

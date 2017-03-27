@@ -8,13 +8,13 @@ public class Booking {
 	private String bookname;
 	
 	public Booking(String bookname, String bookdate,String booktime,String bookemployee){
-		this.bookemployee = bookname;
+		this.bookname = bookname;
 		this.bookdate = bookdate;
 		this.booktime = booktime;
-		this.bookname = bookemployee;
+		this.bookemployee = bookemployee;
 	}
 	
-	public String getBookemployee() {
+	public String getBookEmployee() {
 		return bookemployee;
 	}
 
