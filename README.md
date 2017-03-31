@@ -15,6 +15,7 @@ The motivation behind this group project was to create a user friendly online bo
 
 Installation
 ==
+Our booking system will does not require any installation of any programs. Patients are required to have an account in order to log in and make their bookings.
 
 API Reference
 ==
