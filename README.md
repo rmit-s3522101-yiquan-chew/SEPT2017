@@ -4,8 +4,8 @@ BOOKING SYSTEM
 
 Synopsis
 ==
-Our project named (Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience. 
-
+*Our project named (Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience.* 
+    
 Code Example
 ==
 
@@ -15,7 +15,7 @@ Motivation
 
 Installation
 ==
-Our booking system will does not require any installation of any programs. Patients are required to have an account in order to log in and make their bookings.
+*There are no installations of any program/s required for our booking system. Patients are required to have an account in order to log in and make their bookings.*
 
 API Reference
 ==
@@ -28,4 +28,4 @@ Contributors
 
 License
 ==
-Licensing Information: READ LICENSE
+**Licensing Information: READ LICENSE**
