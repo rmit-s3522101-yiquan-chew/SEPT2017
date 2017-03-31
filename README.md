@@ -11,7 +11,7 @@ Code Example
 
 Motivation
 ==
-The motivation behind this group project was to create a user friendly online booking system. Our reasoning is that we believe that an online system would make it more convenient for patients, by prodiving an automated system. Patients are required to have a Username and Password in order to freely book an appointment suited to their needs.
+*The motivation behind this group project was to create a user friendly online booking system. Our reasoning is that we believe that an online system would make it more convenient for patients, by prodiving an automated system. Patients are required to have a Username and Password in order to freely book an appointment suited to their needs.*
 
 Installation
 ==
