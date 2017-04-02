@@ -107,6 +107,7 @@ public class Data {
 		return employee;
 	}
 	
+	public static int bookingLength = 0;
 	public static Booking[] bookingDetails(String fileName) throws IOException {
 		Booking[] bDetails = new Booking[30];
 		
@@ -137,6 +138,7 @@ public class Data {
 				String eName = inReader.nextToken();
 				
 				bDetails[newEmployee] = new Booking(cName, bDate, bTime, eName);
+				bookingLength++;
 			}
 		}
 		br.close();

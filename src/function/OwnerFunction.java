@@ -3,6 +3,7 @@ package function;
 import java.io.*;
 import java.util.Scanner;
 
+import main.Data;
 import user.*;
 
 
@@ -34,7 +35,7 @@ public class OwnerFunction {
 					return OwnerSelection(owner);
 				}
 				case "3":{
-					OwnerFunction.ViewNewbooking();
+					OwnerFunction.viewLatestBookingDetails();
 					return OwnerSelection(owner);
 				}
 				case "4":{
@@ -85,28 +86,30 @@ public class OwnerFunction {
 		System.out.println("");
 		pw.close();
 	}
-	
-	public static void ViewNewbooking() throws IOException 
-	{
-		File f=new File("booking.txt");
-		BufferedReader br = new BufferedReader(new FileReader(f));
-		String line = br.readLine(), lastfourthline= "",lastthirdline= "", lastsecline= "", lastline = "" ;
-
-		while(line!= null){
-			lastfourthline= lastthirdline;
-			lastthirdline= lastsecline;
-			lastsecline=lastline ;
-			lastline =line.trim();
-			line=br.readLine();
-		}
-		System.out.println("lastfourthline= "+lastfourthline);
-		System.out.println("lastthirdline= "+lastthirdline);
-		System.out.println("lastsecline= "+lastsecline);
-	}
-	
+		
 	public static void ViewWorkerAvailabilityDate() throws FileNotFoundException, IOException 
 	{
 		GeneralFunction.employeeAvailability();
 	}
 	
+	public static void viewLatestBookingDetails() throws IOException, FileNotFoundException{
+		Booking[] bookingDetails = Data.bookingDetails("booking.txt");
+		
+		System.out.println("Showing the latest booking");		
+		System.out.format("|%20s|%s\t|%s\t|%20s|\n", "Cust. Name", "Date", "Time", "Emp. Name");
+		
+		int booking = Data.bookingLength-1;
+		
+		//Showing the latest 3 booking
+		for(int i=0; i<3; i++){
+			booking--;
+			if(booking >= -1){
+				String cName = bookingDetails[i].getBookName();
+				String bDate = bookingDetails[i].getBookDate();
+				String bTime = bookingDetails[i].getBookTime();
+				String eName = bookingDetails[i].getBookEmployee();
+				System.out.format("|%20s|%s\t|%s\t|%20s|\n", cName, bDate, bTime, eName);
+			}			
+		}
+	}
 }
