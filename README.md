@@ -19,11 +19,30 @@ asdsad
 ### API Reference
 
 ### Tests
+```
+package junitTest;
 
+import static org.junit.Assert.*;
+import java.io.IOException;
+import function.*;
+import main.Data;
+import user.*;
+
+import org.junit.Test;
+
+public class MainpageTest {
+	@Test
+	public void ownerTest() throws IOException {
+		Mainpage mp = new Mainpage();
+		String checkOwner = mp.check("alex123", "123alex");
+		assertEquals("owner", checkOwner);
+	}
+}
+```
 ### Contributors
-* *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation,  25% Contribution* 
-* *Yi Quan Chew - s3522101 Coding -  Functional Implementation, Product Backlog 25% Contribution*
-* *Xiaohan Zeng - s3521491 Documentation - User Stories 25% Contribution*   
+* *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation, Sprint Backlog, Product Backlog  25% Contribution* 
+* *Yi Quan Chew - s3522101 Coding -  Functional Implementation, Junit Testing  25% Contribution*
+* *Xiaohan Zeng - s3521491 Documentation - User Stories, Sprint Backlog 25% Contribution*   
 * *Andy Tiu - s3568041 Documentation - User Story, Class Diagram, README.md 25% Contribution*
 
 ### License
