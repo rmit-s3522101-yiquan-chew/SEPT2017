@@ -3,7 +3,7 @@ BOOKING SYSTEM
 
 ### Synopsis
 
-*Our project named (Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience.*
+*Our project named (Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience. We plan on delivering a newly way that patients can book their appoints without the hassle of walking into a clinic.*
     
 ### Code Example
 
@@ -21,8 +21,8 @@ asdsad
 ### Tests
 
 ### Contributors
-* *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation 25% Contribution* 
-* *Yi Quan Chew - s3522101 Coding -  Functional Implementation 25% Contribution*
+* *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation,  25% Contribution* 
+* *Yi Quan Chew - s3522101 Coding -  Functional Implementation, Product Backlog 25% Contribution*
 * *Xiaohan Zeng - s3521491 Documentation - User Stories 25% Contribution*   
 * *Andy Tiu - s3568041 Documentation - User Story, Class Diagram, README.md 25% Contribution*
 
