@@ -4,7 +4,7 @@ BOOKING SYSTEM
 
 Synopsis
 ==
-*Our project named (Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience. *
+*Our project named (Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience.*
     
 Code Example
 ==
@@ -28,10 +28,10 @@ Tests
 
 Contributors
 ==
-*Leung Chun Ki Jenkin - s3444706*
-*Xiaohan Zeng - s3521491*   
-*Yi Quan Chew - s3522101*
-*Andy Tiu - s3568041*
+*1. Leung Chun Ki Jenkin - s3444706*
+*2. Xiaohan Zeng - s3521491*   
+*3. Yi Quan Chew - s3522101*
+*4. Andy Tiu - s3568041*
 
 
 License
