@@ -28,10 +28,10 @@ Tests
 
 Contributors
 ==
-*1. Leung Chun Ki Jenkin - s3444706*
-*2. Xiaohan Zeng - s3521491*   
-*3. Yi Quan Chew - s3522101*
-*4. Andy Tiu - s3568041*
+* Leung Chun Ki Jenkin - s344470*6 *
+* Xiaohan Zeng - s3521491 *   
+* Yi Quan Chew - s3522101 *
+* Andy Tiu - s3568041 *
 
 
 License
