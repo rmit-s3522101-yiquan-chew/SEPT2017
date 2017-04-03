@@ -22,10 +22,9 @@ asdsad
 
 ### Contributors
 * *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation* 
-* *Xiaohan Zeng - s3521491 Documentation - User Stories *   
 * *Yi Quan Chew - s3522101 Coding -  Functional Implementation*
+* *Xiaohan Zeng - s3521491 Documentation - User Stories *   
 * *Andy Tiu - s3568041 Documentation - User Story, Class Diagram, README.md*
-
 
 ### License
 
