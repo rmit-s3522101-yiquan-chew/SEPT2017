@@ -21,10 +21,10 @@ asdsad
 ### Tests
 
 ### Contributors
-* *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation* 
-* *Yi Quan Chew - s3522101 Coding -  Functional Implementation*
-* *Xiaohan Zeng - s3521491 Documentation - User Stories *   
-* *Andy Tiu - s3568041 Documentation - User Story, Class Diagram, README.md*
+* *Leung Chun Ki Jenkin - s3444706 Coding - Functional Implementation 25% Contribution* 
+* *Yi Quan Chew - s3522101 Coding -  Functional Implementation 25% Contribution*
+* *Xiaohan Zeng - s3521491 Documentation - User Stories 25% Contribution*   
+* *Andy Tiu - s3568041 Documentation - User Story, Class Diagram, README.md 25% Contribution*
 
 ### License
 
