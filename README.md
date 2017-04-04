@@ -1,5 +1,19 @@
 APPOINTMENT BOOKING SYSTEM
 ==
+### Team member
+* *Leung Chun Ki Jenkin - s3444706 * 
+* *Yi Quan Chew - s3522101 *
+* *Xiaohan Zeng - s3521491 *   
+* *Andy Tiu - s3568041 *
+
+### Tutor
+* *Lawrence Cavedon*
+
+### Tute/Lab
+* * Building 13 4/F Room 09*
+
+### Day/Time
+* * Tuesday 9:30-11:30*
 
 ### Synopsis
 
