@@ -10,7 +10,7 @@ APPOINTMENT BOOKING SYSTEM
 * *Lawrence Cavedon*
 
 ### Tute/Lab
-* *Building 13 4/F Room 09*
+* *13.04.09*
 
 ### Day/Time
 * *Tuesday 9:30-11:30*
