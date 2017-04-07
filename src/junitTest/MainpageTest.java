@@ -31,8 +31,16 @@ public class MainpageTest {
 	}
 	
 	@Test
-	public void registerTest() throws IOException{
+	public void invalidUsernameTest() throws IOException{
 		Mainpage mp = new Mainpage();
-		
+		String invalidUCheck = mp.check("INVALID", "123alex");
+		assertEquals("invalid", invalidUCheck);
+	}
+	
+	@Test
+	public void invalidPassswordTest() throws IOException{
+		Mainpage mp = new Mainpage();
+		String invalidPCheck = mp.check("eliah", "INVALID");
+		assertEquals("invalid", invalidPCheck);
 	}
 }

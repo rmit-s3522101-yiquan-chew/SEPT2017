@@ -17,7 +17,7 @@ public class OwnerFunction {
 		System.out.println("1. Add Employee");
 		System.out.println("2. View Summaries booking"); 	//calculate the booking
 		System.out.println("3. View New booking");  		// show new booking
-		System.out.println("4. View All workers' availability date");
+		System.out.println("4. View available date times");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
 		Scanner sc = new Scanner(System.in);
