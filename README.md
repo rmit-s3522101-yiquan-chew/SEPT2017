@@ -91,10 +91,10 @@ public class MainpageTest {
 }
 ```
 ### Contributors
-* *Leung Chun Ki Jenkin - s3444706 Coding - Minor Functional Implementation, Sprint Backlog, Product Backlog  25% Contribution* 
+* *Leung Chun Ki Jenkin - s3444706 Coding - Minor Functional Implementation, Sprint Backlog, Product Backlog 25% Contribution, HOWTO.Document* 
 * *Yi Quan Chew - s3522101 Coding -  Major Functional Implementation, Junit Testing   25% Contribution*
 * *Xiaohan Zeng - s3521491 Documentation - User Stories, Sprint Backlog 25% Contribution*   
-* *Andy Tiu - s3568041 Documentation - User Story, Class Diagram, README.md 25% Contribution*
+* *Andy Tiu - s3568041 Documentation - Class Diagram, README.md, High Level Architecture Diagram 25% Contribution*
 
 
 
