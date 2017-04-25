@@ -40,7 +40,7 @@ public class Mainpage {
 	}
 	
 	//for checking username and password
-	public static String check(String username, String password) throws IOException{
+	public String check(String username, String password) throws IOException{
 		//readfile to check
 		Owner[] owner = Data.ownerArray("business.txt");
 		Customer[] customer = Data.customerArray("customerinfo.txt");
@@ -72,16 +72,17 @@ public class Mainpage {
 		return status;
 	}
 	
-	//registerMenu
-	public static void registerMenu() throws IOException{
+	//register
+	public static void register() throws IOException{
+		FileWriter fw = new FileWriter("customerinfo.txt",true);
+		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Please enter your username");
 		String newUsername = sc.nextLine();
 		System.out.println("Please enter your password");
 		String newPassword = sc.nextLine();
-		System.out.println("Please confirm your password");
-		String confirmPassword = sc.nextLine();
 		System.out.println("Please enter your full name");
 		String newName = sc.nextLine();
 		System.out.println("Please enter your company address");
@@ -89,36 +90,10 @@ public class Mainpage {
 		System.out.println("Please enter your contact number");
 		String newPhone = sc.nextLine();
 		
-		String registerStatus = register(newName, newUsername, newPassword, confirmPassword, newAddress, newPhone);
-		if(!registerStatus.equals("success")){
-			System.out.println("Opps! Error occured. Please try again.");
-			//return menu
-		}
-		else if(registerStatus.equals("success")){
-			System.out.println("Successfully register, Please login from the main screen");
-			//return menu
-		}
-		
-	}
-	
-	//register
-	public static String register(String fullName, String userName, String password, String confirmPW, String address, String phone) throws IOException{
-		//check fill
-		if(!fullName.equals("") && !userName.equals("") && !password.equals("") && !confirmPW.equals("") && address != null && phone != null){
-			if(!confirmPW.equals(password)){
-				return "wrongPW";
-			}
-			else{
-				FileWriter fw = new FileWriter("customerinfo.txt",true);
-				PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-				
-				Customer newCustomer = new Customer(userName, password, fullName, address, phone);
-				pw.println(newCustomer.toString());
-				pw.close();
-				return "success";
-			}
-		}		
-		return "noFill";
+		Customer newCustomer = new Customer(newUsername, newPassword, newName, newAddress, newPhone);
+		System.out.println("Successfully registered.");
+		pw.println(newCustomer.toString());
+		pw.close();
 	}
 
 }
