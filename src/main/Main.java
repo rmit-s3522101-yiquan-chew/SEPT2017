@@ -61,7 +61,7 @@ public class Main {
 					
 					//register
 					case "2":{
-						mp.register();
+						mp.registerMenu();
 						check = true;
 						
 						//after register, should return here for login
