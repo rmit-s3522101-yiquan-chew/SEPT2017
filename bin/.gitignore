@@ -1,1 +1,6 @@
-/application/
+/gui/
+/mainpageGUI/
+/ownerFunctionGUI/
+/function/
+/junitTest/
+/main/
