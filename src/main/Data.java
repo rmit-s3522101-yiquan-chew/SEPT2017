@@ -3,6 +3,7 @@ package main;
 import java.io.*;
 import java.util.*;
 
+import function.Activity;
 import function.Booking;
 import user.*;
 
@@ -144,6 +145,44 @@ public class Data {
 		br.close();
 		
 		return bDetails;
+	}
+	
+	public static Activity[] ActivityDetails(String fileName) throws IOException {
+		Activity[] Activity = new Activity[50];
+		
+		String line;
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		
+		while((line = br.readLine()) != null){
+			StringTokenizer inReader = new StringTokenizer(line, ":");
+			
+			int newEmployee = -1;
+			for( int i = 0; i < Activity.length;i++)
+			{
+				if( Activity[i] == null )
+				{
+					newEmployee = i;
+					break;
+				}		
+			}
+			
+			if(inReader.countTokens() == 4){
+				//customer name
+				String employeename = inReader.nextToken();
+				//booking date
+				String activityname = inReader.nextToken();
+				//booking time
+				String duration = inReader.nextToken();
+				//employee name
+				String comment = inReader.nextToken();
+				
+				Activity[newEmployee] = new Activity(employeename, activityname, duration, comment);
+			
+			}
+		}
+		br.close();
+		
+		return Activity;
 	}
 	
 	//not done implementing

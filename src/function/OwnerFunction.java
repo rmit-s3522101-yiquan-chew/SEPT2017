@@ -18,6 +18,7 @@ public class OwnerFunction {
 		System.out.println("2. View Summaries booking"); 	//calculate the booking
 		System.out.println("3. View New booking");  		// show new booking
 		System.out.println("4. View available date times");
+		System.out.println("5. Add Employee activity and time");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
 		Scanner sc = new Scanner(System.in);
@@ -40,6 +41,10 @@ public class OwnerFunction {
 				}
 				case "4":{
 					OwnerFunction.ViewWorkerAvailabilityDate();
+					return OwnerSelection(owner);
+				}
+				case "5":{
+					OwnerFunction.AddActivityandTime();
 					return OwnerSelection(owner);
 				}
 				case "0":{
@@ -85,6 +90,35 @@ public class OwnerFunction {
 		System.out.println("New employee " + Employee.getEmployeeName() + " has been added");
 		System.out.println("");
 		pw.close();
+	}
+	
+	public static void AddActivityandTime() throws IOException{
+		FileWriter fw = new FileWriter("activity.txt",true);
+		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter Employee name");
+		String employeename = sc.nextLine();
+		
+		System.out.println("Please enter the Activity name");
+		String activityname = sc.nextLine();
+		
+		System.out.println("Does any comment?");
+		String comment = sc.nextLine();
+		
+		System.out.println("Please enter the working duration");
+		String duration = sc.nextLine();    
+        
+		Activity Activity = new Activity (employeename, activityname, duration, comment); 
+		
+		pw.println(Activity.toString());
+		System.out.println("New employee " + Activity.getEmployeeName() + " has been added");
+		System.out.println("");
+		
+		pw.close();
+		
+		
 	}
 		
 	public static void ViewWorkerAvailabilityDate() throws FileNotFoundException, IOException 
