@@ -19,6 +19,7 @@ public class OwnerFunction {
 		System.out.println("3. View New booking");  		// show new booking
 		System.out.println("4. View available date times");
 		System.out.println("5. Add Employee activity and time");
+		System.out.println("6. Add Customer booking");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
 		Scanner sc = new Scanner(System.in);
@@ -45,6 +46,10 @@ public class OwnerFunction {
 				}
 				case "5":{
 					OwnerFunction.AddActivityandTime();
+					return OwnerSelection(owner);
+				}
+				case "6":{
+					OwnerFunction.AddCustomerBooking(owner);
 					return OwnerSelection(owner);
 				}
 				case "0":{
@@ -145,5 +150,27 @@ public class OwnerFunction {
 				System.out.format("|%20s|%s\t|%s\t|%20s|\n", cName, bDate, bTime, eName);
 			}			
 		}
+	}
+	public static void AddCustomerBooking(Owner owner) throws IOException{
+		
+		FileWriter fw = new FileWriter("booking.txt",true);
+		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter Customer name");
+		String newname = sc.nextLine();
+		System.out.println("Please enter Booking date (DD/MM/YYYY)");
+		String newbookdate = sc.nextLine();
+		System.out.println("Please enter Booking time (hh/min)");
+		String newbooktime = sc.nextLine();
+		System.out.println("Please enter Employee name");
+		String newbookemployee = sc.nextLine();
+
+		pw.println(newname +":"+newbookdate + ":" + newbooktime+":"+newbookemployee);		
+		System.out.println("Your new booking has been added");
+		System.out.println("");
+		
+		pw.close();
 	}
 }
