@@ -82,7 +82,7 @@ public class OwnerFunction {
 		System.out.println("Please enter Employee name");
 		String newbookemployee = sc.nextLine();
 
-		boolean isBooked =Booking.addBooking(newname, newbookdate, newbooktime, newbookemployee);
+		boolean isBooked = Booking.addBooking(newname, newbookdate, newbooktime, newbookemployee);
 		if(isBooked)
 			System.out.println("Your new booking has been added");
 		System.out.println("");		

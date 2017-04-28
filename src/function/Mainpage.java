@@ -34,9 +34,10 @@ public class Mainpage {
 			return loginUser;
 		}
 		else
-			System.out.println("Invalid username/password");
+			System.out.println("Invalid username/password! Please try again!");
+			
+		return login();
 		
-		return loginUser;
 	}
 	
 	//for checking username and password
@@ -90,6 +91,7 @@ public class Mainpage {
 		String newPhone = sc.nextLine();
 		
 		String registerStatus = register(newName, newUsername, newPassword, confirmPassword, newAddress, newPhone);
+		
 		if(!registerStatus.equals("success")){
 			System.out.println("Opps! Error occured. Please try again.");
 			//return menu
@@ -98,6 +100,8 @@ public class Mainpage {
 			System.out.println("Successfully register, Please login from the main screen");
 			//return menu
 		}
+		
+		
 		
 	}
 	
