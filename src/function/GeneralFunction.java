@@ -8,7 +8,7 @@ import user.Employee;
 public class GeneralFunction {
 	
 	//employee details
-	public static void employeeAvailability() throws IOException, FileNotFoundException{
+	public static void displayEmployee() throws IOException, FileNotFoundException{
 		Employee[] employee = Data.employeeArray("employee.txt");
 		
 		System.out.format("|%20s|%s\t|%6s|\n", "Name", "Date", "Time");
@@ -30,8 +30,8 @@ public class GeneralFunction {
 	}
 	
 	//booking details
-	public static void viewAllBookingDetails() throws IOException, FileNotFoundException{
-		Booking[] bookingDetails = Data.bookingDetails("booking.txt");
+	public static void viewBookingDetails(String fileName) throws IOException, FileNotFoundException{
+		Booking[] bookingDetails = Data.bookingDetails(fileName);
 		
 		System.out.format("|%20s|%s\t|%s\t|%20s|\n", "Cust. Name", "Date", "Time", "Emp. Name");
 		

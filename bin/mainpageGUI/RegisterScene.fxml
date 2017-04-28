@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpageGUI.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpageGUI.RegisterController">
    <children>
-      <GridPane layoutX="25.0" layoutY="120.0" maxWidth="350.0" prefHeight="317.0" prefWidth="350.0">
+      <GridPane layoutX="220.0" layoutY="142.0" maxWidth="350.0" prefHeight="317.0" prefWidth="350.0">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="148.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="252.0" />
@@ -42,17 +42,17 @@
             <TextArea fx:id="address" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Text layoutX="135.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+      <Text layoutX="330.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
          <font>
-            <Font size="36.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Button fx:id="registerButton" layoutX="292.0" layoutY="480.0" mnemonicParsing="false" text="Register">
+      <Button fx:id="registerButton" layoutX="491.0" layoutY="504.0" mnemonicParsing="false" text="Register">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="25.0" layoutY="487.0" mnemonicParsing="false" text="Back" />
-      <Text fx:id="text" layoutX="189.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
+      <Button fx:id="back" layoutX="220.0" layoutY="511.0" mnemonicParsing="false" text="Back" />
+      <Text fx:id="text" layoutX="384.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

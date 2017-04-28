@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ownerFunctionGUI.OwnerDetailsController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customerFunctionGUI.CustomerController">
    <children>
       <TabPane layoutX="188.0" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -26,7 +26,7 @@
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Text>
-                        <Text fx:id="title" layoutX="235.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner">
+                        <Text fx:id="customerName" layoutX="235.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
@@ -39,35 +39,24 @@
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Business name">
+                              <Label text="Business address">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label text="Business address" GridPane.rowIndex="1">
+                              <Label text="Contact number" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label text="Contact number" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Text fx:id="businessName" strokeType="OUTSIDE" strokeWidth="0.0" text="Sample Co." GridPane.columnIndex="1">
+                              <Text fx:id="customerAddress" strokeType="OUTSIDE" strokeWidth="0.0" text="1, Sample St, Sample Town" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="businessAddress" strokeType="OUTSIDE" strokeWidth="0.0" text="1, Sample St, Sample Town" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Text fx:id="ownerPhone" strokeType="OUTSIDE" strokeWidth="0.0" text="0123456789" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Text fx:id="customerPhone" strokeType="OUTSIDE" strokeWidth="0.0" text="0123456789" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -79,34 +68,33 @@
 				</AnchorPane>
               </content>
             </Tab>
-          <Tab text="Employee">
+          <Tab text="View my bookings">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="cBookingTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
+                          <columns>
+                            <TableColumn fx:id="cBookingCustomer" prefWidth="208.0" text="Customer Name" />
+                            <TableColumn fx:id="cBookingDate" prefWidth="126.0" text="Date" />
+                              <TableColumn fx:id="cBookingTime" prefWidth="128.0" text="Time" />
+                              <TableColumn fx:id="cBookingEmployee" prefWidth="201.0" text="Employee Name" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Make Booking">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="800.0">
                      <children>
                         <TableView fx:id="employeeTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
                             <TableColumn fx:id="employeeName" prefWidth="248.0" text="Name" />
-                              <TableColumn fx:id="eWorkingDate" prefWidth="182.0" text="Working date" />
-                              <TableColumn fx:id="eWorkingTime" prefWidth="219.0" text="Working time" />
+                              <TableColumn fx:id="eWorkingDate" prefWidth="205.0" text="Working date" />
+                              <TableColumn fx:id="eWorkingTime" prefWidth="196.0" text="Working time" />
                           </columns>
                         </TableView>
-                        <Button fx:id="addEmployee" layoutX="508.0" layoutY="500.0" mnemonicParsing="false" text="Add Employee" />
-                        <Button fx:id="addBooking" layoutX="628.0" layoutY="500.0" mnemonicParsing="false" text="Add Booking" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="View all bookings">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView fx:id="bookingTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
-                          <columns>
-                            <TableColumn fx:id="bookingCustomer" prefWidth="208.0" text="Customer Name" />
-                            <TableColumn fx:id="bookingDate" prefWidth="126.0" text="Date" />
-                              <TableColumn fx:id="bookingTime" prefWidth="128.0" text="Time" />
-                              <TableColumn fx:id="bookingEmployee" prefWidth="201.0" text="Employee Name" />
-                          </columns>
-                        </TableView>
+                        <Button fx:id="addBooking" layoutX="628.0" layoutY="500.0" mnemonicParsing="false" text="Make booking" />
                      </children></AnchorPane>
             </content>
           </Tab>

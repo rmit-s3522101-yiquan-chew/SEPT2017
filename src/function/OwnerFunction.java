@@ -18,6 +18,7 @@ public class OwnerFunction {
 		System.out.println("2. View Summaries booking"); 	//calculate the booking
 		System.out.println("3. View New booking");  		// show new booking
 		System.out.println("4. View available date times");
+		System.out.println("5. Add booking");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
 		Scanner sc = new Scanner(System.in);
@@ -27,11 +28,11 @@ public class OwnerFunction {
 			switch(select){
 				
 				case "1":{
-					OwnerFunction.AddEmployee();
+					OwnerFunction.addEmployeeMenu();
 					return OwnerSelection(owner);
 				}
 				case "2":{
-					GeneralFunction.viewAllBookingDetails();
+					GeneralFunction.viewBookingDetails("booking.txt");
 					return OwnerSelection(owner);
 				}
 				case "3":{
@@ -40,6 +41,10 @@ public class OwnerFunction {
 				}
 				case "4":{
 					OwnerFunction.ViewWorkerAvailabilityDate();
+					return OwnerSelection(owner);
+				}
+				case "5":{
+					AddCustomerBooking();
 					return OwnerSelection(owner);
 				}
 				case "0":{
@@ -64,9 +69,26 @@ public class OwnerFunction {
 		return null;
 	}
 	
-	public static void AddEmployee() throws IOException{
-		FileWriter fw = new FileWriter("employee.txt",true);
-		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+	public static void AddCustomerBooking() throws IOException{
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter Customer name");
+		String newname = sc.nextLine();
+		System.out.println("Please enter Booking date (DD/MM/YYYY)");
+		String newbookdate = sc.nextLine();
+		System.out.println("Please enter Booking time (hh/min)");
+		String newbooktime = sc.nextLine();
+		System.out.println("Please enter Employee name");
+		String newbookemployee = sc.nextLine();
+
+		boolean isBooked =Booking.addBooking(newname, newbookdate, newbooktime, newbookemployee);
+		if(isBooked)
+			System.out.println("Your new booking has been added");
+		System.out.println("");		
+	}
+	
+	public static void addEmployeeMenu() throws IOException{
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -79,17 +101,29 @@ public class OwnerFunction {
 		System.out.println("Please enter the working date (DD/MM/YYYY)");
 		String newDate = sc.nextLine();
 		
-		Employee Employee = new Employee (employeeName, newDate, newTime); //Need to create user Employee
+		Employee tempEmployee = new Employee(employeeName, newDate, newTime);
+		addEmployee(tempEmployee);
 		
-		pw.println(Employee.toString());
-		System.out.println("New employee " + Employee.getEmployeeName() + " has been added");
+		System.out.println("Employee added. You can check it at \"View available date\times\".");
 		System.out.println("");
-		pw.close();
+	}
+	
+	public static void addEmployee(Employee employee){
+		try{
+			FileWriter fw = new FileWriter("employee.txt",true);
+			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+			
+			pw.println(employee.toString());
+			pw.close();			
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 		
 	public static void ViewWorkerAvailabilityDate() throws FileNotFoundException, IOException 
 	{
-		GeneralFunction.employeeAvailability();
+		GeneralFunction.displayEmployee();
 	}
 	
 	public static void viewLatestBookingDetails() throws IOException, FileNotFoundException{

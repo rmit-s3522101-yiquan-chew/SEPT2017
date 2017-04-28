@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 import function.*;
+import gui.SceneManager;
 
 public class RegisterController {
 	@FXML private TextField fullName;
@@ -25,7 +26,7 @@ public class RegisterController {
 	
 	public void initialize(){}
 	
-	public void initManager(final MainpageManager tManager){
+	public void initManager(final SceneManager tManager){
 		registerButton.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event){

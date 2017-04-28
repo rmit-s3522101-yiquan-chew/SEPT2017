@@ -1,6 +1,6 @@
-/gui/
-/mainpageGUI/
 /ownerFunctionGUI/
+/bookingGUI/
+/gui/
 /function/
-/junitTest/
-/main/
+/mainpageGUI/
+/customerFunctionGUI/
