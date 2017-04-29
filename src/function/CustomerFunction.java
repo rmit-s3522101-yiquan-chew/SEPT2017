@@ -35,7 +35,7 @@ public class CustomerFunction {
 					return CustomerSelection(customer);
 				}
 				case "3":{
-					String fileName = customer.getName() + "Booking.txt";
+					String fileName = customer.getName() + "booking.txt";
 					GeneralFunction.viewBookingDetails(fileName);
 					return CustomerSelection(customer);
 				}
