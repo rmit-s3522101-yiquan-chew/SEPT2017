@@ -8,16 +8,16 @@ import function.OwnerFunction;
 import function.CustomerFunction;
 import user.*;
 
-public class Main {
+public class MainConsole {
 	
-	public static void main(String[] args) throws IOException {
-		//to complie to excutable jar
-		javax.swing.SwingUtilities.invokeLater(new Runnable(){
-			public void run(){
-				mainMenu();
-			};
-		});
-	}
+//	public static void main(String[] args) throws IOException {
+//		//to complie to excutable jar
+//		javax.swing.SwingUtilities.invokeLater(new Runnable(){
+//			public void run(){
+//				mainMenu();
+//			};
+//		});
+//	}
 	
 	public static void mainMenu(){
 		

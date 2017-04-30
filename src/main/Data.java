@@ -186,37 +186,25 @@ public class Data {
 	}
 	
 	//not done implementing
-	public static void removeUser(User[] user, String fileName) throws Exception{
-		String line;
-		BufferedReader br = new BufferedReader(new FileReader(fileName));
+	public static void remove(String details, String fileName) throws Exception{
+		// Accepting toString data, remove details by creating a tempfile
+		File file = new File(fileName);
+		File tempFile = File.createTempFile("file", ".txt", file.getParentFile());
+		String charset = "UTF-8";
 		
-		while((line = br.readLine()) != null){
-			StringTokenizer inReader = new StringTokenizer(line, ":");
-			
-			int newCustomer = -1;
-			for( int i = 0; i < user.length;i++)
-			{
-				if( user[i] == null )
-				{
-					newCustomer = i;
-					break;
-				}		
-			}
-			
-			/*3 conditions
-			 * - business.txt
-			 * - customerinfo.txt
-			 * - employee.txt
-			 */
-			if(inReader.countTokens() == 5){
-				String username = inReader.nextToken();
-				String password = inReader.nextToken();
-				String name = inReader.nextToken();
-				String address = inReader.nextToken();
-				String phone = inReader.nextToken();
-			}
+		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
+		PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(tempFile), charset));
+		
+		for(String line; (line = reader.readLine()) != null;){
+			line = line.replace(details, "");
+			writer.println(line);
 		}
-		br.close();
+		
+		reader.close();
+		writer.close();
+		
+		file.delete();
+		tempFile.renameTo(file);
 	}
 	
 	//booking.txt?

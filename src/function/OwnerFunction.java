@@ -44,6 +44,10 @@ public class OwnerFunction {
 					return OwnerSelection(owner);
 				}
 				case "5":{
+					OwnerFunction.addActivityTime();
+					return OwnerSelection(owner);
+				}
+				case "6":{
 					AddCustomerBooking();
 					return OwnerSelection(owner);
 				}
@@ -124,6 +128,35 @@ public class OwnerFunction {
 	public static void ViewWorkerAvailabilityDate() throws FileNotFoundException, IOException 
 	{
 		GeneralFunction.displayEmployee();
+	}
+	
+	public static void addActivityTime() throws IOException{
+		 FileWriter fw = new FileWriter("activity.txt",true);
+		 PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+		 
+		 Scanner sc = new Scanner(System.in);
+		 
+		 System.out.println("Please enter Employee name");
+		 String employeename = sc.nextLine();
+		 
+		 System.out.println("Please enter the Activity name");
+		 String activityname = sc.nextLine();
+		 
+		 System.out.println("Does any comment?");
+		 String comment = sc.nextLine();
+		 
+		 System.out.println("Please enter the working duration");
+		 String duration = sc.nextLine();    
+		    
+		 Activity Activity = new Activity (employeename, activityname, duration, comment); 
+		 
+		 pw.println(Activity.toString());
+		 System.out.println("New employee " + Activity.getEmployeeName() + " has been added");
+		 System.out.println("");
+		 
+		 pw.close();
+		 
+		 
 	}
 	
 	public static void viewLatestBookingDetails() throws IOException, FileNotFoundException{

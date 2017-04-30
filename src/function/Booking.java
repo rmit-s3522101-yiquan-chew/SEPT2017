@@ -38,6 +38,10 @@ public class Booking {
 		return bookname;
 	}
 	
+	public String toString(){
+		return bookname + ":" + bookdate + ":" + booktime + ":" +bookemployee;
+	}
+	
 	//booking function
 	public static void addBookingMenu(Customer customer) throws IOException{
 		Scanner sc = new Scanner(System.in);		
@@ -60,7 +64,7 @@ public class Booking {
 	public static boolean addBooking(String customerName, String bookDate, String bookTime, String bookEmployee) throws IOException{
 		
 		//check null
-		if(customerName.equals("") || bookDate.equals("") || bookTime.equals("") || bookEmployee.equals("")){
+		if(customerName.equals("") || bookDate.equals("") || bookTime.equals("") || bookEmployee.equals("") || customerName.equals(null) || bookDate.equals(null) || bookTime.equals(null) || bookEmployee.equals(null)){
 			return false;
 		}
 		else{
