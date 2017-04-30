@@ -3,17 +3,23 @@ package main;
 import java.io.IOException;
 import java.util.*;
 
-import com.sun.org.apache.xpath.internal.functions.Function;
-
 import function.Mainpage;
 import function.OwnerFunction;
 import function.CustomerFunction;
-import user.User;
+import user.*;
 
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
+		//to complie to excutable jar
+		javax.swing.SwingUtilities.invokeLater(new Runnable(){
+			public void run(){
+				mainMenu();
+			};
+		});
+	}
+	
+	public static void mainMenu(){
 		
 		boolean check = false;
 		
@@ -38,12 +44,14 @@ public class Main {
 						//after login, should continue to user function
 						if((Mainpage.lStatus).equals("owner")){
 							//owner function
-							bo.OwnerSelecton();
+							Owner owner = (Owner) user;
+							bo.OwnerSelection(owner);
 							//System.out.println(user.toString());
 						}
 						else if((Mainpage.lStatus).equals("customer")){
 							//customer function
-							c.CustomerSelecton();
+							Customer customer = (Customer) user;
+							c.CustomerSelection(customer);
 							//System.out.println(user.toString());
 						}
 						
@@ -53,7 +61,7 @@ public class Main {
 					
 					//register
 					case "2":{
-						mp.register();
+						mp.registerMenu();
 						check = true;
 						
 						//after register, should return here for login
