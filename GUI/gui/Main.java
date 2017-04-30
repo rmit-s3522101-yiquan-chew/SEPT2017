@@ -20,6 +20,7 @@ public class Main extends Application {
 	    SceneManager loginManager = new SceneManager(scene);
 	    loginManager.showLoginScene();
 
+	    primaryStage.setTitle("Appointment Booking System");
 	    primaryStage.setScene(scene);
 	    primaryStage.show();
 	}
