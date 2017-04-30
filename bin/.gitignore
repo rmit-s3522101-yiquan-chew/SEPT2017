@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /bookingGUI/
 /customerFunctionGUI/
 /gui/
@@ -7,3 +8,13 @@
 /function/
 /main/
 /dataModel/
+=======
+/ownerFunctionGUI/
+/bookingGUI/
+/gui/
+/function/
+/mainpageGUI/
+/customerFunctionGUI/
+/main/
+/junitTest/
+>>>>>>> parent of d9d1147... Merge from branch
