@@ -1,7 +1,9 @@
-/ownerFunctionGUI/
 /bookingGUI/
-/gui/
-/function/
-/mainpageGUI/
 /customerFunctionGUI/
+/gui/
+/junitTest/
+/mainpageGUI/
+/ownerFunctionGUI/
+/function/
 /main/
+/dataModel/

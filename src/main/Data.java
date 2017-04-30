@@ -1,6 +1,10 @@
 package main;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import function.Activity;
@@ -110,6 +114,11 @@ public class Data {
 	
 	public static int bookingLength = 0;
 	public static Booking[] bookingDetails(String fileName) throws IOException {
+		//check for file existence. create if non
+		Path path = Paths.get(fileName);
+		if (!Files.exists(path, LinkOption.NOFOLLOW_LINKS))
+		    Files.createFile(path);
+		
 		Booking[] bDetails = new Booking[30];
 		
 		String line;
