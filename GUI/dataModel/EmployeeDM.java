@@ -1,4 +1,4 @@
-package ownerFunctionGUI;
+package dataModel;
 
 import javafx.beans.property.*;
 

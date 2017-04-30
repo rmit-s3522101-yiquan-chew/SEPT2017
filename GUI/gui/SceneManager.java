@@ -65,7 +65,7 @@ public class SceneManager {
 			
 			scene.setRoot((Parent)ownerDetails.load());
 			
-			OwnerDetailsController controller = ownerDetails.<OwnerDetailsController>getController();
+			OwnerController controller = ownerDetails.<OwnerController>getController();
 			controller.initManager(this);
 		}
 		catch(IOException e){

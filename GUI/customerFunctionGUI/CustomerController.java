@@ -9,6 +9,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+import java.io.File;
+
 import function.Booking;
 import function.Mainpage;
 import gui.SceneManager;
@@ -64,7 +66,6 @@ public class CustomerController {
 						boolean confirmClicked = manager.showAddBooking(customer.getName(), employee);
 						if(confirmClicked){
 							cBookingTable.refresh();
-							System.out.println("table refresh");
 						}
 					}
 					else {

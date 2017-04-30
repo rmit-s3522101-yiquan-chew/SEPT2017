@@ -17,7 +17,7 @@ import gui.Main;
 import user.*;
 import main.*;
 
-public class OwnerDetailsController {
+public class OwnerController {
 	//OwnerDetails tab - Display owner details and logout
 	@FXML private Text title;
 	@FXML private Text businessName;

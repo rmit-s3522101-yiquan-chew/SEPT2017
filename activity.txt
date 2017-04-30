@@ -1,3 +1,4 @@
-peter:PM:50:pm
-jacky:pt:30:pt
-peter:pm:50:pm
+John:Hairdresser:30:Haircut
+Jack:Hairdresser:30:Haircut
+Houston:Hairdresser:50:Haircolour
+Tim:Hairdresser:50:Haircolour
