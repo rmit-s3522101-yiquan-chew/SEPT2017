@@ -6,13 +6,15 @@ public class Owner extends User{
 	private String name;
 	private String address;
 	private String cNumber;
+	private String bussinesshour;
 	
-	public Owner(String username, String password, String bName, String name, String address, String cNumber) {
+	public Owner(String username, String password, String bName, String name, String address, String cNumber, String bussinesshour) {
 		super(username, password);
 		this.bName = bName;
 		this.name = name;
 		this.address = address;
 		this.cNumber = cNumber;
+		this.bussinesshour = bussinesshour;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -32,7 +34,11 @@ public class Owner extends User{
 		return cNumber;
 	}
 	
+	public String getBusinesshour(){
+		return bussinesshour;
+	}
+	
 	public String toString(){
-		return super.toString() + ":" + bName + ":" + name + ":" + address + ":" + cNumber;
+		return super.toString() + ":" + bName + ":" + name + ":" + address + ":" + cNumber + ":" + bussinesshour;
 	}
 }

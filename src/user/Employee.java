@@ -5,19 +5,25 @@ public class Employee {
 	private String employeeName;
 	private String date;
 	private String time;
+	private String ebusinesshour;
 	
-	public Employee(String Employeename, String date, String time){
+	public Employee(String Employeename, String ebusinesshour, String date, String time){
 		this.employeeName = Employeename;	
-		
+		this.ebusinesshour = ebusinesshour;
 		//date time formatting should be done
 		this.date = date;
 		this.time = time;
+		
 	}
 	
 	public String getEmployeeName() {
 		return employeeName;
 	}
 
+	public String getEbusinesshour() {
+		return ebusinesshour;
+	}
+	
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
@@ -39,7 +45,7 @@ public class Employee {
 	}
 	
 	public String toString(){
-		return employeeName + ":" + date + ":" + time;
+		return employeeName + ":" + ebusinesshour + ":" + date + ":" + time;
 	}
 	
 }

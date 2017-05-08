@@ -15,11 +15,12 @@ public class OwnerFunction {
 		do{
 		System.out.println(" ");
 		System.out.println("1. Add Employee");
-		System.out.println("2. View Summaries booking"); 	//calculate the booking
-		System.out.println("3. View New booking");  		// show new booking
-		System.out.println("4. View available date times");
-		System.out.println("5. Add Employee activity and time");
-		System.out.println("6. Add booking");
+		System.out.println("2. Add Business");
+		System.out.println("3. View Summaries booking"); 	//calculate the booking
+		System.out.println("4. View New booking");  		// show new booking
+		System.out.println("5. View available date times");
+		System.out.println("6. Add Employee activity and time");
+		System.out.println("7. Add booking");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
 		Scanner sc = new Scanner(System.in);
@@ -27,36 +28,40 @@ public class OwnerFunction {
 		
 		try {
 			switch(select){
-				
-				case "1":{
-					OwnerFunction.addEmployeeMenu();
-					return OwnerSelection(owner);
-				}
-				case "2":{
-					GeneralFunction.viewBookingDetails("booking.txt");
-					return OwnerSelection(owner);
-				}
-				case "3":{
-					OwnerFunction.viewLatestBookingDetails();
-					return OwnerSelection(owner);
-				}
-				case "4":{
-					OwnerFunction.ViewWorkerAvailabilityDate();
-					return OwnerSelection(owner);
-				}
-				case "5":{
-					OwnerFunction.addActivityTime();
-					return OwnerSelection(owner);
-				}
-				case "6":{
-					AddCustomerBooking();
-					return OwnerSelection(owner);
-				}
-				case "0":{
-					System.out.println("Your account has been exited");
-					System.out.println("");
-					break;
-				}
+
+			case "1":{
+				OwnerFunction.addEmployeeMenu();
+				return OwnerSelection(owner);
+			}
+			case "2":{
+				OwnerFunction.addBusinessMenu();
+				return OwnerSelection(owner);
+			}
+			case "3":{
+				GeneralFunction.viewBookingDetails("booking.txt");
+				return OwnerSelection(owner);
+			}
+			case "4":{
+				OwnerFunction.viewLatestBookingDetails();
+				return OwnerSelection(owner);
+			}
+			case "5":{
+				OwnerFunction.ViewWorkerAvailabilityDate();
+				return OwnerSelection(owner);
+			}
+			case "6":{
+				OwnerFunction.addActivityTime();
+				return OwnerSelection(owner);
+			}
+			case "7":{
+				AddCustomerBooking();
+				return OwnerSelection(owner);
+			}
+			case "0":{
+				System.out.println("Your account has been exited");
+				System.out.println("");
+				break;
+			}
 				
 				default:
 				{
@@ -93,6 +98,50 @@ public class OwnerFunction {
 		System.out.println("");		
 	}
 	
+	public static void addBusinessMenu() throws IOException{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		String username = null;
+		String password = null;
+		
+		System.out.println("Please enter Business occupation");
+		String businessName = sc.nextLine();
+		
+		System.out.println("Please enter Business name");
+		String Name = sc.nextLine();
+		
+		System.out.println("Please enter Business address");
+		String Address = sc.nextLine();
+		
+		System.out.println("Please enter Business number");
+		String CNumber = sc.nextLine();
+		
+		System.out.println("Please enter the Business Hour ");
+		String Businesshour = sc.nextLine();
+		
+		
+		Owner tempBusiness = new Owner(username, password, businessName, Name, Address, CNumber, Businesshour);
+		addBusiness(tempBusiness);
+		
+		System.out.println("Business added.");
+		System.out.println("");
+	}
+	
+	public static void addBusiness(Owner business){
+		try{
+			FileWriter fw = new FileWriter("business.txt",true);
+			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+			
+			pw.println(business.toString());
+			pw.close();			
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	public static void addEmployeeMenu() throws IOException{
 		
 		Scanner sc = new Scanner(System.in);
@@ -100,13 +149,16 @@ public class OwnerFunction {
 		System.out.println("Please enter Employee name");
 		String employeeName = sc.nextLine();
 		
+		System.out.println("Please enter Employee Business hours");
+		String ebusinesshour = sc.nextLine();
+		
 		System.out.println("Please enter the working time (Hr/Min)");
 		String newTime = sc.nextLine();
 		
 		System.out.println("Please enter the working date (DD/MM/YYYY)");
 		String newDate = sc.nextLine();
 		
-		Employee tempEmployee = new Employee(employeeName, newDate, newTime);
+		Employee tempEmployee = new Employee(employeeName, ebusinesshour, newDate, newTime);
 		addEmployee(tempEmployee);
 		
 		System.out.println("Employee added. You can check it at \"View available date\times\".");

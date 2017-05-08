@@ -38,8 +38,9 @@ public class Data {
 				String oName = inReader.nextToken();
 				String address = inReader.nextToken();
 				String phone = inReader.nextToken();
+				String bussinesshour = inReader.nextToken();
 				
-				owner[newOwner] = new Owner(username, password, bName, oName, address, phone);
+				owner[newOwner] = new Owner(username, password, bName, oName, address, phone, bussinesshour);
 			}
 		}
 		br.close();
@@ -98,14 +99,14 @@ public class Data {
 				}		
 			}
 			
-			if(inReader.countTokens() == 3){
+			if(inReader.countTokens() == 4){
 				String employeeName = inReader.nextToken();
-				
+				String employeebusinesshour = inReader.nextToken();
 				//format for date time should be done
 				String employeeDate = inReader.nextToken();
 				String employeeTime = inReader.nextToken();
 				
-				employee[newEmployee] = new Employee(employeeName, employeeDate, employeeTime);
+				employee[newEmployee] = new Employee(employeeName, employeebusinesshour, employeeDate, employeeTime);
 			}
 		}
 		br.close();
