@@ -2,6 +2,7 @@ package bookingGUI;
 
 import java.io.IOException;
 
+import function.Activity;
 import function.Booking;
 import function.Mainpage;
 import function.OwnerFunction;
@@ -20,7 +21,8 @@ public class AddBookingController {
 	@FXML private TextField customerName;
 	@FXML private Text employeeName;
 	@FXML private Text eWorkingDate;
-	@FXML private Text eWorkingTime;
+	@FXML private MenuButton activity;
+	@FXML private MenuButton availableTime;
 	@FXML private Button confirm;
 	@FXML private Button cancel;
 	
@@ -46,14 +48,19 @@ public class AddBookingController {
 		customerName.setText(name);		
 		employeeName.setText(employee.getEmployeeName());
 		eWorkingDate.setText(employee.getDate());
-		eWorkingTime.setText(employee.getTime());
+	}
+	
+	//menubutton for activity
+	public void handleActivity(){
+		Activity tempActivity;
+		//show available time
 	}
 	
 	@FXML
 	private void handleConfirm(){
 		try {
 			if(isInputValid()){
-				Booking.addBooking(customerName.getText(), eWorkingDate.getText(), eWorkingTime.getText(), employeeName.getText());
+				Booking.addBooking(customerName.getText(), employeeName.getText(), /*activity, activityStartTime, activityEndTime*/));
 				confirmBooked = true;
 				dialogStage.close();
 			}			

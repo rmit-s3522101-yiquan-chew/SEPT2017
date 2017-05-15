@@ -1,38 +1,34 @@
 package function;
 
-public class Activity {
-	
-	private String employeename;
+public class Activity {	
 	private String activityname;
-	private String duration;
-	private String comment;
-	
-	public Activity(String employeename, String activityname, String duration, String comment){
-		this.employeename = employeename;	
-		this.activityname = activityname;
-		this.duration = duration;
-		this.comment = comment;
-	}
-	
-	
-	public String getEmployeeName() {
-		return employeename;
-	}
+	private int duration;
 
+	//duration in mins
+	public Activity(String activityName, int duration){
+		this.activityname = activityName;
+		this.duration = duration;		
+	}
+	
 	public String getActivityname() {
 		return activityname;
 	}
 
-	public String getDuration() {
+	public int getDuration() {
 		return duration;
 	}
 
-	public String getComment() {
-		return comment;
+	public void setActivityname(String activityname) {
+		this.activityname = activityname;
 	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
 	
 	public String toString(){
-		return employeename + ":" + activityname + ":" + duration + ":" + comment;
+		return activityname + ":" + duration ;
 	}
 	
 }

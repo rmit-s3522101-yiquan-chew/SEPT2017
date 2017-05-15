@@ -10,16 +10,20 @@ import user.Customer;
 
 public class Booking {
 	
-	private String bookdate;
-	private String booktime;
-	private String bookemployee;
 	private String bookname;
-	
-	public Booking(String bookname, String bookdate,String booktime,String bookemployee){
+	private String bookemployee;
+	private String bookdate;
+	private String activity;
+	private String bookstarttime;
+	private String bookendtime;
+		
+	public Booking(String bookname, String bookemployee, String bookdate, String activity, String bookstarttime, String bookendtime){
 		this.bookname = bookname;
 		this.bookdate = bookdate;
-		this.booktime = booktime;
+		this.activity = activity;
 		this.bookemployee = bookemployee;
+		this.bookstarttime = bookstarttime;
+		this.bookendtime = bookendtime;
 	}
 	
 	public String getBookEmployee() {
@@ -30,8 +34,16 @@ public class Booking {
 		return bookdate;
 	}
 	
-	public String getBookTime() {
-		return booktime;
+	public String getActivity() {
+		return activity;
+	}
+	
+	public String getStartBookTime() {
+		return bookstarttime;
+	}
+	
+	public String getEndBookTime() {
+		return bookendtime;
 	}
 	
 	public String getBookName() {
@@ -39,20 +51,24 @@ public class Booking {
 	}
 	
 	public String toString(){
-		return bookname + ":" + bookdate + ":" + booktime + ":" +bookemployee;
+		return bookname + ":" + bookemployee + ":" + bookdate + ":" + activity + ":" +bookstarttime + ":" +bookendtime;
 	}
 	
 	//booking function
 	public static void addBookingMenu(Customer customer) throws IOException{
 		Scanner sc = new Scanner(System.in);		
-		System.out.println("Please enter Booking date (DD/MM/YYYY)");
-		String newbookdate = sc.nextLine();
-		System.out.println("Please enter Booking time (hh/min)");
-		String newbooktime = sc.nextLine();
 		System.out.println("Please enter Employee name");
 		String newbookemployee = sc.nextLine();
+		System.out.println("Please enter Booking date (DD/MM/YYYY)");
+		String newbookdate = sc.nextLine();
+		System.out.println("Please select activity");
+		String newactivity = sc.nextLine();
+		System.out.println("Please enter booking start time (hh/min)");
+		String newbookstarttime = sc.nextLine();
+		System.out.println("Please enter booking end time (hh/min)");
+		String newbookendtime = sc.nextLine();
 		
-		boolean check = addBooking(customer.getName(), newbookdate, newbooktime, newbookemployee);
+		boolean check = addBooking(customer.getName(), newbookemployee, newbookdate, newactivity, newbookstarttime, newbookendtime );
 		if(check == false){
 			System.out.println("Unable to add new booking.");
 			System.out.println("Please make sure you enter all required details.");
@@ -61,10 +77,10 @@ public class Booking {
 			System.out.println("Booking added.");
 	}
 	
-	public static boolean addBooking(String customerName, String bookDate, String bookTime, String bookEmployee) throws IOException{
+	public static boolean addBooking(String customerName, String bookEmployee, String bookdate, String activity, String bookstartTime, String bookendtime) throws IOException{
 		
 		//check null
-		if(customerName.equals("") || bookDate.equals("") || bookTime.equals("") || bookEmployee.equals("") || customerName.equals(null) || bookDate.equals(null) || bookTime.equals(null) || bookEmployee.equals(null)){
+		if(customerName.equals("") || bookEmployee.equals("") || bookdate.equals("") || activity.equals("") || bookstartTime.equals("") || bookendtime.equals("") || customerName.equals(null) || bookEmployee.equals(null) || bookdate.equals(null) || activity.equals(null) || bookstartTime.equals(null) || bookendtime.equals(null)){
 			return false;
 		}
 		else{
@@ -74,7 +90,7 @@ public class Booking {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 			PrintWriter pwGeneral = new PrintWriter(new BufferedWriter(fwGeneral));
 			
-			String booking = customerName +":"+bookDate + ":" + bookTime+":"+ bookEmployee;
+			String booking = customerName +":"+bookEmployee + ":" + bookdate+ ":" + activity+ ":" + bookstartTime+ ":" + bookendtime;
 			
 			pw.println(booking);
 			pwGeneral.println(booking);

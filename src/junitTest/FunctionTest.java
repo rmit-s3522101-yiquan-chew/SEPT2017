@@ -28,7 +28,7 @@ public class FunctionTest {
 	
 	@Test
 	public void invalidBookingTest() throws IOException{
-		check = Booking.addBooking("", "", null, null);
+		check = Booking.addBooking("", "", null, null, null, null);
 		assertEquals(false, check);
 	}
 	

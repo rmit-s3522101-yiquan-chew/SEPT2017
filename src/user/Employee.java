@@ -4,15 +4,18 @@ public class Employee {
 	
 	private String employeeName;
 	private String date;
-	private String time;
-	private String ebusinesshour;
+	private String starttime;
+	private String endtime;
+	private String activity;
 	
-	public Employee(String Employeename, String ebusinesshour, String date, String time){
-		this.employeeName = Employeename;	
-		this.ebusinesshour = ebusinesshour;
+	
+	public Employee(String employeename, String date, String starttime, String endtime, String activity){
+		this.employeeName = employeename;	
+		this.starttime = starttime;
 		//date time formatting should be done
 		this.date = date;
-		this.time = time;
+		this.endtime = endtime;
+		this.activity = activity;
 		
 	}
 	
@@ -20,32 +23,45 @@ public class Employee {
 		return employeeName;
 	}
 
-	public String getEbusinesshour() {
-		return ebusinesshour;
+	public String getStarttime() {
+		return starttime;
+	}
+	
+	public String getDate() {
+		return date;
 	}
 	
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
 
-	public String getDate() {
-		return date;
-	}
 
 	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public String getTime() {
-		return time;
+	public String getEndTime() {
+		return endtime;
+	}
+	
+	public String getActivity() {
+		return activity;
+	}
+	
+	public void setActivity(String activity) {
+		this.activity = activity;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setStartTime(String starttime) {
+		this.starttime = starttime;
+	}
+	
+	public void setEndTime(String endtime) {
+		this.endtime = endtime;
 	}
 	
 	public String toString(){
-		return employeeName + ":" + ebusinesshour + ":" + date + ":" + time;
+		return employeeName + ":" + date + ":" + starttime + ":" + endtime + ":" + activity;
 	}
 	
 }

@@ -31,7 +31,7 @@ public class Data {
 				}
 			}
 			
-			if(inReader.countTokens() == 6){
+			if(inReader.countTokens() == 7){
 				String username = inReader.nextToken();
 				String password = inReader.nextToken();
 				String bName = inReader.nextToken();
@@ -99,14 +99,16 @@ public class Data {
 				}		
 			}
 			
-			if(inReader.countTokens() == 4){
+			if(inReader.countTokens() == 5){
 				String employeeName = inReader.nextToken();
-				String employeebusinesshour = inReader.nextToken();
+				//String employeebusinesshour = inReader.nextToken();
 				//format for date time should be done
 				String employeeDate = inReader.nextToken();
-				String employeeTime = inReader.nextToken();
+				String startTime = inReader.nextToken();
+				String endTime = inReader.nextToken();
+				String activity = inReader.nextToken();
 				
-				employee[newEmployee] = new Employee(employeeName, employeebusinesshour, employeeDate, employeeTime);
+				employee[newEmployee] = new Employee(employeeName,  employeeDate,  startTime,  endTime,  activity);
 			}
 		}
 		br.close();
@@ -138,17 +140,22 @@ public class Data {
 				}		
 			}
 			
-			if(inReader.countTokens() == 4){
+			if(inReader.countTokens() == 6){
 				//customer name
 				String cName = inReader.nextToken();
-				//booking date
-				String bDate = inReader.nextToken();
-				//booking time
-				String bTime = inReader.nextToken();
 				//employee name
 				String eName = inReader.nextToken();
+				//booking date
+				String bDate = inReader.nextToken();
+				//Activity
+				String activity = inReader.nextToken();
+				//booking start time
+				String bsTime = inReader.nextToken();
+				//booking end time
+				String beTime = inReader.nextToken();
 				
-				bDetails[newEmployee] = new Booking(cName, bDate, bTime, eName);
+				
+				bDetails[newEmployee] = new Booking( cName, eName, bDate, activity, bsTime, beTime);
 				bookingLength++;
 			}
 		}
@@ -166,27 +173,23 @@ public class Data {
 		while((line = br.readLine()) != null){
 			StringTokenizer inReader = new StringTokenizer(line, ":");
 			
-			int newEmployee = -1;
+			int newActivity = -1;
 			for( int i = 0; i < Activity.length;i++)
 			{
 				if( Activity[i] == null )
 				{
-					newEmployee = i;
+					newActivity = i;
 					break;
 				}		
 			}
 			
 			if(inReader.countTokens() == 4){
-				//customer name
-				String employeename = inReader.nextToken();
-				//booking date
+				//Activity
 				String activityname = inReader.nextToken();
-				//booking time
-				String duration = inReader.nextToken();
-				//employee name
-				String comment = inReader.nextToken();
+				//Duration
+				int duration = Integer.parseInt(inReader.nextToken());
 				
-				Activity[newEmployee] = new Activity(employeename, activityname, duration, comment);
+				Activity[newActivity] = new Activity(activityname, duration);
 			
 			}
 		}
