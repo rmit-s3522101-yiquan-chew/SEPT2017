@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 
 import java.io.File;
 
+import function.Activity;
 import function.Booking;
 import function.Mainpage;
 import gui.SceneManager;
@@ -31,12 +32,14 @@ public class CustomerController {
 	@FXML private TableColumn<Booking, String> cBookingDate;
 	@FXML private TableColumn<Booking, String> cBookingTime;
 	@FXML private TableColumn<Booking, String> cBookingEmployee;
+	@FXML private TableColumn<Booking, String> cBookingActivity;
 	
 	//BookingTab - for customer to add booking
 	@FXML private TableView<Employee> employeeTable;
 	@FXML private TableColumn<Employee, String> employeeName;
 	@FXML private TableColumn<Employee, String> eWorkingDate;
 	@FXML private TableColumn<Employee, String> eWorkingTime;
+	@FXML private TableColumn<Employee, Activity> activity;
 	@FXML private Button addBooking;
 	
 	public void initialize(){}
@@ -103,11 +106,12 @@ public class CustomerController {
 		cBookingTable.setEditable(true);
 		cBookingCustomer.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookName"));
 		cBookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookDate"));
+		cBookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("actName"));
 		cBookingTime.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookTime"));
 		cBookingEmployee.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookEmployee"));
 		
 		cBookingTable.setItems(booking);
-		cBookingTable.getColumns().addAll(cBookingCustomer, cBookingDate, cBookingTime, cBookingEmployee);
+		cBookingTable.getColumns().addAll(cBookingCustomer, cBookingDate, cBookingActivity, cBookingTime, cBookingEmployee);
 	}
 	
 	public void employeeDetails() throws Exception{
@@ -118,8 +122,9 @@ public class CustomerController {
 		employeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("employeeName"));
 		eWorkingDate.setCellValueFactory(new PropertyValueFactory<Employee, String>("date"));
 		eWorkingTime.setCellValueFactory(new PropertyValueFactory<Employee, String>("time"));
+		activity.setCellValueFactory(new PropertyValueFactory<Employee, Activity>("actName"));
 		
 		employeeTable.setItems(employee);
-		employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime);
+		employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime, activity);
 	}
 }

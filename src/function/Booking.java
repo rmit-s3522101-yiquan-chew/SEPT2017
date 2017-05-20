@@ -44,7 +44,7 @@ public class Booking {
 	}
 	
 	public String toString(){
-		return bookname + ":" + bookdate + ":" + booktime + ":" +bookemployee;
+		return bookname + ":" + bookdate + ":" + ":" + activity + ":" + booktime + ":" +bookemployee;
 	}
 	
 	//booking function

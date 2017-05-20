@@ -74,10 +74,11 @@
                      <children>
                         <TableView fx:id="cBookingTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="cBookingCustomer" prefWidth="208.0" text="Customer Name" />
-                            <TableColumn fx:id="cBookingDate" prefWidth="126.0" text="Date" />
-                              <TableColumn fx:id="cBookingTime" prefWidth="128.0" text="Time" />
-                              <TableColumn fx:id="cBookingEmployee" prefWidth="201.0" text="Employee Name" />
+                            <TableColumn fx:id="cBookingCustomer" prefWidth="154.0" text="Customer Name" />
+                            <TableColumn fx:id="cBookingDate" prefWidth="103.0" text="Date" />
+                              <TableColumn fx:id="cBookingTime" prefWidth="118.0" text="Time" />
+                              <TableColumn fx:id="cBookingEmployee" prefWidth="140.0" text="Employee Name" />
+                              <TableColumn fx:id="cBookingActivity" prefWidth="134.0" text="Activity" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -89,9 +90,10 @@
                      <children>
                         <TableView fx:id="employeeTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="employeeName" prefWidth="248.0" text="Name" />
-                              <TableColumn fx:id="eWorkingDate" prefWidth="205.0" text="Working date" />
-                              <TableColumn fx:id="eWorkingTime" prefWidth="196.0" text="Working time" />
+                            <TableColumn fx:id="employeeName" prefWidth="147.0" text="Name" />
+                              <TableColumn fx:id="eWorkingDate" prefWidth="180.0" text="Working date" />
+                              <TableColumn fx:id="eWorkingTime" prefWidth="142.0" text="Working time" />
+                              <TableColumn fx:id="activity" prefWidth="180.0" text="Activity" />
                           </columns>
                         </TableView>
                         <Button fx:id="addBooking" layoutX="628.0" layoutY="500.0" mnemonicParsing="false" text="Make booking" />

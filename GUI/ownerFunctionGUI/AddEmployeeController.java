@@ -29,18 +29,13 @@ public class AddEmployeeController {
 	private boolean confirmClicked = false;
 	
 	@FXML
-	private void initialize(){}
+	private void initialize() throws IOException{
+		listActivity();
+	}
 	
 	//set the stage of this dialog
 	public void setDialogStage(Stage dialogStage){
 		this.dialogStage = dialogStage;
-	}
-	
-	//set the employee to be edited
-	public void setEmployeeDateTime(Employee employee){
-		this.employee = employee;
-		
-		employeeName.setText(employee.getEmployeeName());
 	}
 	
 	//set actList
@@ -56,8 +51,7 @@ public class AddEmployeeController {
 		for(int i=0; i<activity.length; i++){
 			if(activity[i] == null)
 				break;
-			
-			items.add(activity[i].getActivityname());
+			items.add(i + ". " + activity[i].getActivityname());
 		}
 		
 		activityList.setItems(items);
@@ -71,6 +65,8 @@ public class AddEmployeeController {
 	//handle confirm button
 	@FXML
 	private void handleConfirm(){
+		activity = new Activity(null, 0);
+		employee = new Employee(null, null, null, null, activity);
 		if(isInputValid()){
 			employee.setEmployeeName(employeeName.getText());
 			employee.setDate(date.getText());
@@ -107,10 +103,10 @@ public class AddEmployeeController {
             errorMessage += "No valid time!\n"; 
         }
         
-        int temp = Integer.parseInt(activitySelect.getText());
-        if(temp < 0 || temp > actList.length){
-        	errorMessage += "Invalid activity selection!\n";
-        }
+//        int temp = Integer.parseInt(activitySelect.getText());
+//        if(temp < 0 || temp > actList.length){
+//        	errorMessage += "Invalid activity selection!\n";
+//        }
         if (errorMessage.length() == 0) {
             return true;
         } else {

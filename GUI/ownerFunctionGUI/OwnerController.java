@@ -40,7 +40,7 @@ public class OwnerController {
 	@FXML private TableColumn<Booking, String> bookingDate;
 	@FXML private TableColumn<Booking, String> bookingTime;
 	@FXML private TableColumn<Booking, String> bookingEmployee;
-	@FXML private TableColumn<Booking, String> bookingActivity;
+	@FXML private TableColumn<Booking, Activity> bookingActivity;
 	
 	public void initialize(){}
 
@@ -134,7 +134,7 @@ public class OwnerController {
 		bookingTable.setEditable(true);
 		bookingCustomer.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookName"));
 		bookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookDate"));
-		bookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("actName"));
+		bookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, Activity>("actName"));
 		bookingTime.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookTime"));
 		bookingEmployee.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookEmployee"));
 		

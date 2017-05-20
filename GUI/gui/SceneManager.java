@@ -106,7 +106,6 @@ public class SceneManager {
 	        // Set the person into the controller.
 	        AddEmployeeController controller = loader.getController();
 	        controller.setDialogStage(dialogStage);
-	        controller.setEmployeeDateTime(employee);
 
 	        // Show the dialog and wait until the user closes it
 	        dialogStage.showAndWait();
