@@ -1,5 +1,6 @@
-John:27032017:8
-Houston:28032017:8
-Jack:29032017:8
-Tim:01012001:1
-John:28042017:3
+John:Mon-Fri 8am-5pm, Sat 8am-1pm:27032017:8
+Houston:Mon-Fri 8am-5pm, Sat 8am-1pm:28032017:8
+Jack:Mon-Fri 8am-5pm, Sat 8am-1pm:29032017:8
+Tim:Mon-Fri 8am-5pm, Sat 8am-1pm:01012001:1
+John:Mon-Fri 8am-5pm, Sat 8am-1pm:28042017:3
+a:a:a:a:Haircut

@@ -85,9 +85,10 @@
                      <children>
                         <TableView fx:id="employeeTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="employeeName" prefWidth="248.0" text="Name" />
-                              <TableColumn fx:id="eWorkingDate" prefWidth="182.0" text="Working date" />
-                              <TableColumn fx:id="eWorkingTime" prefWidth="219.0" text="Working time" />
+                            <TableColumn fx:id="employeeName" prefWidth="195.0" text="Name" />
+                              <TableColumn fx:id="eWorkingDate" prefWidth="104.0" text="Working date" />
+                              <TableColumn fx:id="eWorkingTime" prefWidth="170.0" text="Working time" />
+                              <TableColumn fx:id="activityName" prefWidth="180.0" text="Activity" />
                           </columns>
                         </TableView>
                         <Button fx:id="addEmployee" layoutX="508.0" layoutY="500.0" mnemonicParsing="false" text="Add Employee" />
@@ -101,10 +102,11 @@
                      <children>
                         <TableView fx:id="bookingTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="bookingCustomer" prefWidth="208.0" text="Customer Name" />
-                            <TableColumn fx:id="bookingDate" prefWidth="126.0" text="Date" />
-                              <TableColumn fx:id="bookingTime" prefWidth="128.0" text="Time" />
-                              <TableColumn fx:id="bookingEmployee" prefWidth="201.0" text="Employee Name" />
+                            <TableColumn fx:id="bookingCustomer" prefWidth="168.0" text="Customer Name" />
+                            <TableColumn fx:id="bookingDate" prefWidth="115.0" text="Date" />
+                              <TableColumn fx:id="bookingTime" prefWidth="119.0" text="Time" />
+                              <TableColumn fx:id="bookingEmployee" prefWidth="126.0" text="Employee Name" />
+                              <TableColumn fx:id="bookingActivity" prefWidth="121.0" text="Activity" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>

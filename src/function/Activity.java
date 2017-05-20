@@ -1,13 +1,13 @@
 package function;
 
-public class Activity {	
+public class Activity {
+	
 	private String activityname;
 	private int duration;
-
-	//duration in mins
-	public Activity(String activityName, int duration){
-		this.activityname = activityName;
-		this.duration = duration;		
+	
+	public Activity(String activityname, int duration){	
+		this.activityname = activityname;
+		this.duration = duration;
 	}
 	
 	public String getActivityname() {
@@ -17,18 +17,9 @@ public class Activity {
 	public int getDuration() {
 		return duration;
 	}
-
-	public void setActivityname(String activityname) {
-		this.activityname = activityname;
-	}
-
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
-
 	
 	public String toString(){
-		return activityname + ":" + duration ;
+		return activityname + ":" + duration;
 	}
 	
 }

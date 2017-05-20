@@ -1,3 +1,11 @@
-/util/
+/gui/
 /bookingGUI/
+/customerFunctionGUI/
+/dataModel/
 /function/
+/junitTest/
+/main/
+/mainpageGUI/
+/ownerFunctionGUI/
+/user/
+/util/

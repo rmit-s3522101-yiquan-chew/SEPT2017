@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-
+import function.Activity;
 import function.Booking;
 import function.Mainpage;
 import function.OwnerFunction;
@@ -30,6 +30,7 @@ public class OwnerController {
 	@FXML private TableColumn<Employee, String> employeeName;
 	@FXML private TableColumn<Employee, String> eWorkingDate;
 	@FXML private TableColumn<Employee, String> eWorkingTime;
+	@FXML private TableColumn<Employee, Activity> activityName;
 	@FXML private Button addEmployee;
 	@FXML private Button addBooking;
 	
@@ -39,6 +40,7 @@ public class OwnerController {
 	@FXML private TableColumn<Booking, String> bookingDate;
 	@FXML private TableColumn<Booking, String> bookingTime;
 	@FXML private TableColumn<Booking, String> bookingEmployee;
+	@FXML private TableColumn<Booking, String> bookingActivity;
 	
 	public void initialize(){}
 
@@ -58,8 +60,7 @@ public class OwnerController {
 			addEmployee.setOnAction(new EventHandler<ActionEvent>(){
 				@Override
 				public void handle(ActionEvent event){
-					String tempName = null, tempDate = null, tempTime = null;
-					Employee tempEmployee = new Employee(tempName, tempDate, tempTime);
+					Employee tempEmployee = null;
 					boolean confirmAdd = manager.showPersonEditDialog(tempEmployee);
 					if(confirmAdd){
 						try {
@@ -71,36 +72,7 @@ public class OwnerController {
 					}
 				}
 			});
-			
-			//to be done
-//			editEmployee.setOnAction(new EventHandler<ActionEvent>(){
-//				@Override
-//				public void handle(ActionEvent event){
-//					Employee selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
-//					if (selectedEmployee != null) {
-//				        boolean okClicked = manager.showPersonEditDialog(selectedEmployee);
-//				        if (okClicked) {
-//				        	try {
-//				        		employeeTable.refresh();
-//							} catch (Exception e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-//				        }
-//
-//				    } else {
-//				        // Nothing selected.
-//				        Alert alert = new Alert(AlertType.WARNING);
-//				        alert.initOwner(TestLoginMain.getPrimaryStage());
-//				        alert.setTitle("No Selection");
-//				        alert.setHeaderText("No Person Selected");
-//				        alert.setContentText("Please select a person in the table.");
-//
-//				        alert.showAndWait();
-//				    }
-//				}
-//			});
-			
+						
 			//bookingTab
 			allBookingDetails();
 			
@@ -149,9 +121,10 @@ public class OwnerController {
 		employeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("employeeName"));
 		eWorkingDate.setCellValueFactory(new PropertyValueFactory<Employee, String>("date"));
 		eWorkingTime.setCellValueFactory(new PropertyValueFactory<Employee, String>("time"));
+		activityName.setCellValueFactory(new PropertyValueFactory<Employee, Activity>("actName"));
 		
 		employeeTable.setItems(employee);
-		employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime);
+		employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime, activityName);
 	}
 	
 	public void allBookingDetails() throws Exception{
@@ -161,11 +134,12 @@ public class OwnerController {
 		bookingTable.setEditable(true);
 		bookingCustomer.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookName"));
 		bookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookDate"));
+		bookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("actName"));
 		bookingTime.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookTime"));
 		bookingEmployee.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookEmployee"));
 		
 		bookingTable.setItems(booking);
-		bookingTable.getColumns().addAll(bookingCustomer, bookingDate, bookingTime, bookingEmployee);
+		bookingTable.getColumns().addAll(bookingCustomer, bookingDate, bookingActivity, bookingTime, bookingEmployee);
 	}
 	
 	public void viewLatestBooking() {

@@ -1,20 +1,21 @@
 package user;
 
+import function.Activity;
+
 public class Employee {
 	
 	private String employeeName;
 	private String date;
-	private String starttime;
-	private String endtime;
-	private String activity;
+	private String time;
+	private String ebusinesshour;
+	private Activity activity;
 	
-	
-	public Employee(String employeename, String date, String starttime, String endtime, String activity){
-		this.employeeName = employeename;	
-		this.starttime = starttime;
+	public Employee(String Employeename, String ebusinesshour, String date, String time, Activity activity){
+		this.employeeName = Employeename;	
+		this.ebusinesshour = ebusinesshour;
 		//date time formatting should be done
 		this.date = date;
-		this.endtime = endtime;
+		this.time = time;
 		this.activity = activity;
 		
 	}
@@ -23,45 +24,40 @@ public class Employee {
 		return employeeName;
 	}
 
-	public String getStarttime() {
-		return starttime;
-	}
-	
-	public String getDate() {
-		return date;
+	public String getEbusinesshour() {
+		return ebusinesshour;
 	}
 	
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
 
+	public String getDate() {
+		return date;
+	}
 
 	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public String getEndTime() {
-		return endtime;
-	}
-	
-	public String getActivity() {
-		return activity;
-	}
-	
-	public void setActivity(String activity) {
-		this.activity = activity;
+	public String getTime() {
+		return time;
 	}
 
-	public void setStartTime(String starttime) {
-		this.starttime = starttime;
+	public void setTime(String time) {
+		this.time = time;
 	}
 	
-	public void setEndTime(String endtime) {
-		this.endtime = endtime;
+	public Activity getActivity() {
+		return activity;
+	}
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 	
+	//save employee's activity by activity's name
 	public String toString(){
-		return employeeName + ":" + date + ":" + starttime + ":" + endtime + ":" + activity;
+		return employeeName + ":" + ebusinesshour + ":" + date + ":" + time +":"+ activity.getActivityname();
 	}
 	
 }

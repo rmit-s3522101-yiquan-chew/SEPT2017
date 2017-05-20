@@ -1,3 +1,2 @@
-Haircut:30
 Haircut:15
-Haircolor:60
+Haircolour:30

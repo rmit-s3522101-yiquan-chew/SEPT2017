@@ -6,24 +6,25 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import main.Data;
 import user.Customer;
+import user.Employee;
+import util.Time;
 
 public class Booking {
 	
-	private String bookname;
-	private String bookemployee;
 	private String bookdate;
+	private String booktime;
+	private String bookemployee;
+	private String bookname;
 	private String activity;
-	private String bookstarttime;
-	private String bookendtime;
-		
-	public Booking(String bookname, String bookemployee, String bookdate, String activity, String bookstarttime, String bookendtime){
+	
+	public Booking(String bookname, String bookdate, String activity, String booktime,String bookemployee){
 		this.bookname = bookname;
 		this.bookdate = bookdate;
 		this.activity = activity;
+		this.booktime = booktime;
 		this.bookemployee = bookemployee;
-		this.bookstarttime = bookstarttime;
-		this.bookendtime = bookendtime;
 	}
 	
 	public String getBookEmployee() {
@@ -34,16 +35,8 @@ public class Booking {
 		return bookdate;
 	}
 	
-	public String getActivity() {
-		return activity;
-	}
-	
-	public String getStartBookTime() {
-		return bookstarttime;
-	}
-	
-	public String getEndBookTime() {
-		return bookendtime;
+	public String getBookTime() {
+		return booktime;
 	}
 	
 	public String getBookName() {
@@ -51,24 +44,38 @@ public class Booking {
 	}
 	
 	public String toString(){
-		return bookname + ":" + bookemployee + ":" + bookdate + ":" + activity + ":" +bookstarttime + ":" +bookendtime;
+		return bookname + ":" + bookdate + ":" + booktime + ":" +bookemployee;
 	}
 	
 	//booking function
 	public static void addBookingMenu(Customer customer) throws IOException{
-		Scanner sc = new Scanner(System.in);		
-		System.out.println("Please enter Employee name");
-		String newbookemployee = sc.nextLine();
-		System.out.println("Please enter Booking date (DD/MM/YYYY)");
-		String newbookdate = sc.nextLine();
-		System.out.println("Please select activity");
-		String newactivity = sc.nextLine();
-		System.out.println("Please enter booking start time (hh/min)");
-		String newbookstarttime = sc.nextLine();
-		System.out.println("Please enter booking end time (hh/min)");
-		String newbookendtime = sc.nextLine();
+		Employee tempEmployee;
+		Employee[] employee = Data.employeeArray("employee.txt");
 		
-		boolean check = addBooking(customer.getName(), newbookemployee, newbookdate, newactivity, newbookstarttime, newbookendtime );
+		Activity tempActivity;
+		Activity[] activity = Data.ActivityDetails("activity.txt");
+		
+		Scanner sc = new Scanner(System.in);		
+		
+		System.out.println("Please select an activity.");
+		GeneralFunction.viewActivity(employee);
+		int sEmployee = sc.nextInt();
+		tempEmployee = employee[sEmployee];
+		
+		Time.timeSlotMenu(tempEmployee);
+		
+		/* get employee working time and activity,
+		 * read from employee to get eName and activity to
+		 * read from (employeeName+activity).txt
+		 * to get available time slot and
+		 * print out and select available time slot
+		 * add into booking
+		 * done @ 20052017
+		 */
+		
+		
+		
+		boolean check = addBooking(customer.getName(), tempEmployee.getDate(), tempEmployee.getActivity().getActivityname(), Time.getTime(), tempEmployee.getEmployeeName());
 		if(check == false){
 			System.out.println("Unable to add new booking.");
 			System.out.println("Please make sure you enter all required details.");
@@ -77,10 +84,10 @@ public class Booking {
 			System.out.println("Booking added.");
 	}
 	
-	public static boolean addBooking(String customerName, String bookEmployee, String bookdate, String activity, String bookstartTime, String bookendtime) throws IOException{
+	public static boolean addBooking(String customerName, String bookDate, String activity, String bookTime, String bookEmployee) throws IOException{
 		
 		//check null
-		if(customerName.equals("") || bookEmployee.equals("") || bookdate.equals("") || activity.equals("") || bookstartTime.equals("") || bookendtime.equals("") || customerName.equals(null) || bookEmployee.equals(null) || bookdate.equals(null) || activity.equals(null) || bookstartTime.equals(null) || bookendtime.equals(null)){
+		if(customerName.equals("") || bookDate.equals("") || bookTime.equals("") || bookEmployee.equals("") || customerName.equals(null) || bookDate.equals(null) || bookTime.equals(null) || bookEmployee.equals(null)){
 			return false;
 		}
 		else{
@@ -90,7 +97,7 @@ public class Booking {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 			PrintWriter pwGeneral = new PrintWriter(new BufferedWriter(fwGeneral));
 			
-			String booking = customerName +":"+bookEmployee + ":" + bookdate+ ":" + activity+ ":" + bookstartTime+ ":" + bookendtime;
+			String booking = customerName +":"+bookDate + ":" + activity + ":" + bookTime+":"+ bookEmployee;
 			
 			pw.println(booking);
 			pwGeneral.println(booking);
