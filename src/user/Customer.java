@@ -13,6 +13,9 @@ public class Customer extends User{
 		this.cNumber= cNumber;
 		// TODO Auto-generated constructor stub
 	}
+	public void setName(String name){
+		this.name = name;
+	}
 	
 	public String getName(){
 		return name;

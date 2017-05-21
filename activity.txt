@@ -1,4 +1,1 @@
-John:Hairdresser:30:Haircut
-Jack:Hairdresser:30:Haircut
-Houston:Hairdresser:50:Haircolour
-Tim:Hairdresser:50:Haircolour
+Haircut:30

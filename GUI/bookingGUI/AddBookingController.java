@@ -1,16 +1,21 @@
 package bookingGUI;
 
 import java.io.IOException;
+import java.util.List;
 
 import function.Booking;
 import function.Mainpage;
 import function.OwnerFunction;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import main.Data;
 import user.Employee;
+import util.Time;
 
 /* v0.1.4 customer will be able to made booking based on selection. 
  * Similar booking will be fixed soon 
@@ -20,7 +25,9 @@ public class AddBookingController {
 	@FXML private TextField customerName;
 	@FXML private Text employeeName;
 	@FXML private Text eWorkingDate;
-	@FXML private Text eWorkingTime;
+	@FXML private Text activity;
+	@FXML private ListView<String> actTime;
+	@FXML private TextField selectTime;
 	@FXML private Button confirm;
 	@FXML private Button cancel;
 	
@@ -41,19 +48,37 @@ public class AddBookingController {
 	}
 		
 	//show worker availability
-	public void showAvailability(String name, Employee employee){
+	public void showAvailability(String name, Employee employee) throws IOException{
 		this.employee = employee;
 		customerName.setText(name);		
 		employeeName.setText(employee.getEmployeeName());
 		eWorkingDate.setText(employee.getDate());
-		eWorkingTime.setText(employee.getTime());
+		activity.setText(employee.getActivity().getActivityname());
+		
+		ObservableList<String> items = FXCollections.observableArrayList();
+		
+		List<String> tempList = Data.selectTimeSlot(employee);
+		for(int i=0; i<tempList.size(); i++){
+			String[] details = (tempList.get(i).toString()).split(":");
+			String build;
+			if(details[1].equals("true")){
+				build = i + ". " + details[0];
+				items.add(build);
+			}
+		}
+		actTime.setItems(items);
 	}
 	
 	@FXML
 	private void handleConfirm(){
 		try {
 			if(isInputValid()){
-				Booking.addBooking(customerName.getText(), eWorkingDate.getText(), eWorkingTime.getText(), employeeName.getText());
+				int select = Integer.parseInt(selectTime.getText());
+				Time.selectTimeSlot(select, employee);
+				
+				String[] timeSlot = Data.selectTimeSlot(employee).get(select).split(":");
+				
+				Booking.addBooking(customerName.getText(), eWorkingDate.getText(), activity.getText(), timeSlot[0], employeeName.getText());
 				confirmBooked = true;
 				dialogStage.close();
 			}			

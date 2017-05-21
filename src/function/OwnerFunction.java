@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import main.Data;
 import user.*;
+import util.Time;
 
 
 public class OwnerFunction {
@@ -19,7 +20,7 @@ public class OwnerFunction {
 		System.out.println("3. View Summaries booking"); 	//calculate the booking
 		System.out.println("4. View New booking");  		// show new booking
 		System.out.println("5. View available date times");
-		System.out.println("6. Add Employee activity and time");
+		System.out.println("6. Add activity and time");
 		System.out.println("7. Add booking");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
@@ -28,40 +29,40 @@ public class OwnerFunction {
 		
 		try {
 			switch(select){
-
-			case "1":{
-				OwnerFunction.addEmployeeMenu();
-				return OwnerSelection(owner);
-			}
-			case "2":{
-				OwnerFunction.addBusinessMenu();
-				return OwnerSelection(owner);
-			}
-			case "3":{
-				GeneralFunction.viewBookingDetails("booking.txt");
-				return OwnerSelection(owner);
-			}
-			case "4":{
-				OwnerFunction.viewLatestBookingDetails();
-				return OwnerSelection(owner);
-			}
-			case "5":{
-				OwnerFunction.ViewWorkerAvailabilityDate();
-				return OwnerSelection(owner);
-			}
-			case "6":{
-				OwnerFunction.addActivityTime();
-				return OwnerSelection(owner);
-			}
-			case "7":{
-				AddCustomerBooking();
-				return OwnerSelection(owner);
-			}
-			case "0":{
-				System.out.println("Your account has been exited");
-				System.out.println("");
-				break;
-			}
+				
+				case "1":{
+					OwnerFunction.addEmployeeMenu();
+					return OwnerSelection(owner);
+				}
+				case "2":{
+					OwnerFunction.addBusinessMenu();
+					return OwnerSelection(owner);
+				}
+				case "3":{
+					GeneralFunction.viewBookingDetails("booking.txt");
+					return OwnerSelection(owner);
+				}
+				case "4":{
+					OwnerFunction.viewLatestBookingDetails();
+					return OwnerSelection(owner);
+				}
+				case "5":{
+					OwnerFunction.ViewWorkerAvailabilityDate();
+					return OwnerSelection(owner);
+				}
+				case "6":{
+					OwnerFunction.addActivityMenu();
+					return OwnerSelection(owner);
+				}
+				case "7":{
+					AddCustomerBooking();
+					return OwnerSelection(owner);
+				}
+				case "0":{
+					System.out.println("Your account has been exited");
+					System.out.println("");
+					break;
+				}
 				
 				default:
 				{
@@ -80,21 +81,15 @@ public class OwnerFunction {
 	}
 	
 	public static void AddCustomerBooking() throws IOException{
+		Customer tempCustomer = new Customer(null, null, null, null, null);
 
-		Scanner sc = new Scanner(System.in);
-		
+		Scanner sc = new Scanner(System.in);		
 		System.out.println("Please enter Customer name");
 		String newname = sc.nextLine();
-		System.out.println("Please enter Booking date (DD/MM/YYYY)");
-		String newbookdate = sc.nextLine();
-		System.out.println("Please enter Booking time (hh/min)");
-		String newbooktime = sc.nextLine();
-		System.out.println("Please enter Employee name");
-		String newbookemployee = sc.nextLine();
-
-		boolean isBooked = Booking.addBooking(newname, newbookdate, newbooktime, newbookemployee);
-		if(isBooked)
-			System.out.println("Your new booking has been added");
+		tempCustomer.setName(newname);
+		
+		Booking.addBookingMenu(tempCustomer);
+		
 		System.out.println("");		
 	}
 	
@@ -129,6 +124,42 @@ public class OwnerFunction {
 		System.out.println("");
 	}
 	
+	public static void addEmployeeMenu() throws IOException{ 
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("Please enter Employee name");
+			String employeeName = sc.nextLine();
+			
+			System.out.println("Please enter Employee Business hours");
+			String ebusinesshour = sc.nextLine();
+			
+			System.out.println("Please enter the working time (Hr/Min)");
+			String newTime = sc.nextLine();
+			
+			System.out.println("Please enter the working date (DD/MM/YYYY)");
+			String newDate = sc.nextLine();
+			
+			//Select activity
+			System.out.println("Please enter the activity name");
+			
+			Activity[] activity = Data.ActivityDetails("activity.txt");
+			for(int i=0; i<activity.length; i++){
+				if(activity[i] != null)
+					System.out.println(i+". "+activity[i].getActivityname() + ", duration: " + activity[i].getDuration() + "mins");
+			}
+			int selectActivity = Integer.parseInt(sc.nextLine());
+			
+			Activity newactivity = activity[selectActivity];
+			
+			Employee tempEmployee = new Employee(employeeName, ebusinesshour, newDate, newTime, newactivity);
+			boolean check = addEmployee(tempEmployee, newactivity);
+			
+			if(check)
+				System.out.println("Employee added. You can check it at \"View available date\\times\". \n");
+			else
+				System.out.println("Failed to add employee's activity, please try again. \n");
+	}
+	
 	public static void addBusiness(Owner business){
 		try{
 			FileWriter fw = new FileWriter("business.txt",true);
@@ -142,39 +173,27 @@ public class OwnerFunction {
 		}
 	}
 	
-	public static void addEmployeeMenu() throws IOException{
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Please enter Employee name");
-		String employeeName = sc.nextLine();
-		
-		System.out.println("Please enter Employee Business hours");
-		String ebusinesshour = sc.nextLine();
-		
-		System.out.println("Please enter the working time (Hr/Min)");
-		String newTime = sc.nextLine();
-		
-		System.out.println("Please enter the working date (DD/MM/YYYY)");
-		String newDate = sc.nextLine();
-		
-		Employee tempEmployee = new Employee(employeeName, ebusinesshour, newDate, newTime);
-		addEmployee(tempEmployee);
-		
-		System.out.println("Employee added. You can check it at \"View available date\times\".");
-		System.out.println("");
-	}
-	
-	public static void addEmployee(Employee employee){
+	public static boolean addEmployee(Employee employee, Activity activity){
 		try{
 			FileWriter fw = new FileWriter("employee.txt",true);
 			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 			
+			//create employee time slot
+			boolean check = Time.registerTimeSlot(employee);
+						
+			/* a method from util.Time to 
+			 * print time slot and boolean (Stream) to "(EmployeeName + activity).txt
+			 * for booking
+			 * done@20052017
+			 */
 			pw.println(employee.toString());
-			pw.close();			
+			pw.close();
+			
+			return true;
 		}
 		catch (Exception e){
 			e.printStackTrace();
+			return false;
 		}
 	}
 		
@@ -183,33 +202,39 @@ public class OwnerFunction {
 		GeneralFunction.displayEmployee();
 	}
 	
-	public static void addActivityTime() throws IOException{
+	public static void addActivity(String activityname, int duration) throws IOException{        /////////////////////////////
 		 FileWriter fw = new FileWriter("activity.txt",true);
 		 PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-		 
-		 Scanner sc = new Scanner(System.in);
-		 
-		 System.out.println("Please enter Employee name");
-		 String employeename = sc.nextLine();
-		 
-		 System.out.println("Please enter the Activity name");
-		 String activityname = sc.nextLine();
-		 
-		 System.out.println("Does any comment?");
-		 String comment = sc.nextLine();
-		 
-		 System.out.println("Please enter the working duration");
-		 String duration = sc.nextLine();    
 		    
-		 Activity Activity = new Activity (employeename, activityname, duration, comment); 
+		 Activity Activity = new Activity (activityname, duration); 
 		 
 		 pw.println(Activity.toString());
-		 System.out.println("New employee " + Activity.getEmployeeName() + " has been added");
+		 System.out.println("Activity " + " has been added");
 		 System.out.println("");
 		 
 		 pw.close();
+	}
+	
+	public static boolean addActivityMenu(){
+		Scanner sc = new Scanner(System.in);
 		 
-		 
+		System.out.println("Please enter the Activity name");
+		String activityname = sc.nextLine();
+		
+		try{
+			System.out.println("Please enter the activity duration");
+			int duration = sc.nextInt();    
+	 		
+			addActivity(activityname, duration);
+			
+			return true;
+		}catch(NumberFormatException nfe){
+			System.out.println("Invalid duration format, please try again");
+			return false;
+		}catch(IOException ioe){
+			System.out.println("Failed to add activity, please try again.");
+			return false;
+		}
 	}
 	
 	public static void viewLatestBookingDetails() throws IOException, FileNotFoundException{
@@ -232,32 +257,5 @@ public class OwnerFunction {
 			}			
 		}
 	}
-	public static void AddActivityandTime() throws IOException{
-		FileWriter fw = new FileWriter("activity.txt",true);
-		PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Please enter Employee name");
-		String employeename = sc.nextLine();
-		
-		System.out.println("Please enter the Activity name");
-		String activityname = sc.nextLine();
-		
-		System.out.println("Does any comment?");
-		String comment = sc.nextLine();
-		
-		System.out.println("Please enter the working duration");
-		String duration = sc.nextLine();    
-        
-		Activity Activity = new Activity (employeename, activityname, duration, comment); 
-		
-		pw.println(Activity.toString());
-		System.out.println("New employee " + Activity.getEmployeeName() + " has been added");
-		System.out.println("");
-		
-		pw.close();
-		
-		
-	}
+
 }

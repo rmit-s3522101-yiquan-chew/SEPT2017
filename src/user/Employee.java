@@ -1,18 +1,22 @@
 package user;
 
+import function.Activity;
+
 public class Employee {
 	
 	private String employeeName;
 	private String date;
 	private String time;
 	private String ebusinesshour;
+	private Activity activity;
 	
-	public Employee(String Employeename, String ebusinesshour, String date, String time){
+	public Employee(String Employeename, String ebusinesshour, String date, String time, Activity activity){
 		this.employeeName = Employeename;	
 		this.ebusinesshour = ebusinesshour;
 		//date time formatting should be done
 		this.date = date;
 		this.time = time;
+		this.activity = activity;
 		
 	}
 	
@@ -44,8 +48,16 @@ public class Employee {
 		this.time = time;
 	}
 	
+	public Activity getActivity() {
+		return activity;
+	}
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+	
+	//save employee's activity by activity's name
 	public String toString(){
-		return employeeName + ":" + ebusinesshour + ":" + date + ":" + time;
+		return employeeName + ":" + ebusinesshour + ":" + date + ":" + time +":"+ activity.getActivityname();
 	}
 	
 }

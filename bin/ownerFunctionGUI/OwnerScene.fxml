@@ -2,10 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -85,9 +88,10 @@
                      <children>
                         <TableView fx:id="employeeTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="employeeName" prefWidth="248.0" text="Name" />
-                              <TableColumn fx:id="eWorkingDate" prefWidth="182.0" text="Working date" />
-                              <TableColumn fx:id="eWorkingTime" prefWidth="219.0" text="Working time" />
+                            <TableColumn fx:id="employeeName" prefWidth="195.0" text="Name" />
+                              <TableColumn fx:id="eWorkingDate" prefWidth="104.0" text="Working date" />
+                              <TableColumn fx:id="eWorkingTime" prefWidth="170.0" text="Working time" />
+                              <TableColumn fx:id="activityName" prefWidth="180.0" text="Activity" />
                           </columns>
                         </TableView>
                         <Button fx:id="addEmployee" layoutX="508.0" layoutY="500.0" mnemonicParsing="false" text="Add Employee" />
@@ -101,15 +105,47 @@
                      <children>
                         <TableView fx:id="bookingTable" layoutX="70.0" layoutY="70.0" prefHeight="400.0" prefWidth="650.0">
                           <columns>
-                            <TableColumn fx:id="bookingCustomer" prefWidth="208.0" text="Customer Name" />
-                            <TableColumn fx:id="bookingDate" prefWidth="126.0" text="Date" />
-                              <TableColumn fx:id="bookingTime" prefWidth="128.0" text="Time" />
-                              <TableColumn fx:id="bookingEmployee" prefWidth="201.0" text="Employee Name" />
+                            <TableColumn fx:id="bookingCustomer" prefWidth="168.0" text="Customer Name" />
+                            <TableColumn fx:id="bookingDate" prefWidth="115.0" text="Date" />
+                              <TableColumn fx:id="bookingTime" prefWidth="119.0" text="Time" />
+                              <TableColumn fx:id="bookingEmployee" prefWidth="126.0" text="Employee Name" />
+                              <TableColumn fx:id="bookingActivity" prefWidth="121.0" text="Activity" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
             </content>
           </Tab>
+          <Tab text="Activity">
+               <content>
+                  <SplitPane dividerPositions="0.57875" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="521.0">
+                           <children>
+                              <Text layoutX="82.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Activity">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                              <ListView fx:id="activityList" layoutX="113.0" layoutY="142.0" prefHeight="307.0" prefWidth="234.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="301.0">
+                           <children>
+                              <Text layoutX="63.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Activity">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="130.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activity Name" />
+                              <Text layoutX="120.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration (Minute)" />
+                              <Button fx:id="addActivity" layoutX="127.0" layoutY="379.0" mnemonicParsing="false" text="Add Activity" />
+                              <TextField fx:id="getName" layoutX="93.0" layoutY="193.0" />
+                              <TextField fx:id="getDuration" layoutX="93.0" layoutY="306.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content></Tab>
         </tabs>
       </TabPane>
    </children>

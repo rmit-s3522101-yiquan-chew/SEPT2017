@@ -11,7 +11,7 @@ public class GeneralFunction {
 	public static void displayEmployee() throws IOException, FileNotFoundException{
 		Employee[] employee = Data.employeeArray("employee.txt");
 		
-		System.out.format("|%20s|%s\t|%6s|\n", "Name", "Date", "Time");
+		System.out.format("|%20s|%30s|%s\t|%6s|%6s|\n", "Name", "Business Hour", "Date", "Time", "Activity");
 		
 		//printing employee details
 		for(int i=0; i<employee.length; i++){
@@ -21,9 +21,11 @@ public class GeneralFunction {
 			}
 			else{
 				String name = employee[i].getEmployeeName();
+				String ebusinesshour = employee[i].getEbusinesshour();
 				String date = employee[i].getDate();
 				String time = employee[i].getTime();
-				System.out.format("|%20s|%s\t|%6s|\n", name, date, time);
+				String activityname = employee[i].getActivity().getActivityname();
+				System.out.format("|%20s|%30s|%s\t|%6s|%6s|\n", name, ebusinesshour, date, time, activityname);
 			}
 		}
 //		return false;
@@ -47,6 +49,24 @@ public class GeneralFunction {
 				String eName = bookingDetails[i].getBookEmployee();
 				System.out.format("|%20s|%s\t|%s\t|%20s|\n", cName, bDate, bTime, eName);
 			}
+		}
+	}
+
+	//view activity
+	public static void viewActivity(Employee[] employee){
+		System.out.printf("|\t|%s\t|%s\t|%s\t|%s\t|\n", "Emp. Name", "Working date", "Working time", "Activity");
+		
+		String eName, wDate, wTime, activity;
+		for(int i=0; i<employee.length; i++){
+			if(employee[i] == null)
+				break;
+			
+			eName = employee[i].getEmployeeName();
+			wDate = employee[i].getDate();
+			wTime = employee[i].getTime();
+			activity = employee[i].getActivity().getActivityname();
+			
+			System.out.printf("|%d\t|%s\t|%s\t|%s\t|%s\t|\n", i, eName, wDate, wTime, activity);
 		}
 	}
 }

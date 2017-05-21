@@ -1,5 +1,6 @@
 package dataModel;
 
+import function.Activity;
 import javafx.beans.property.*;
 
 /* This is the data model for class /SEPT2017/src/function/Booking.java
@@ -8,13 +9,15 @@ import javafx.beans.property.*;
 
 public class BookingDM {
 	private final StringProperty bookDate;
+	private final StringProperty activity;
 	private final StringProperty bookTime;
 	private final StringProperty bookEmployee;
 	private final StringProperty bookName;
 	
-	public BookingDM(String bookname, String bookdate,String booktime,String bookemployee){
+	public BookingDM(String bookname, String bookdate, String activity, String booktime,String bookemployee){
 		this.bookName = new SimpleStringProperty(bookname);
 		this.bookDate = new SimpleStringProperty(bookdate);
+		this.activity = new SimpleStringProperty(activity);
 		this.bookTime = new SimpleStringProperty(booktime);
 		this.bookEmployee = new SimpleStringProperty(bookemployee);
 	}
@@ -33,6 +36,14 @@ public class BookingDM {
 	
 	public void setBookDate(String bookDate){
 		this.bookDate.set(bookDate);
+	}
+	
+	public String getActivity(){
+		return activity.get();
+	}
+	
+	public void setActivity(String activity){
+		this.activity.set(activity);
 	}
 	
 	public String getBookTime() {

@@ -1,1 +1,3 @@
-alex123:123alex:Alex Trading Services:Alexander:82 Mandible St, 4825 Piturie, Queensland:07-45662150
+alex123:123alex:Alex Trading Services:Alexander:82 Mandible St, 4825 Piturie, Queensland:07-45662150:Mon-Fri 9am-5pm, Sat 9am-1pm
+jacky888:888jacky:Jacky Trading Services:Jacky:123 Victory road, Victoria:61-414285649:Mon-Fri 9am-6pm, Sat 9am-1am
+null:null:Phillip:Phillip:456 victoria street:Victoria:61-414589587:Mon-Fri 9am-5pm
