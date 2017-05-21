@@ -106,7 +106,7 @@ public class CustomerController {
 		cBookingTable.setEditable(true);
 		cBookingCustomer.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookName"));
 		cBookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookDate"));
-		cBookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("actName"));
+		cBookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("activity"));
 		cBookingTime.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookTime"));
 		cBookingEmployee.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookEmployee"));
 		
@@ -122,7 +122,7 @@ public class CustomerController {
 		employeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("employeeName"));
 		eWorkingDate.setCellValueFactory(new PropertyValueFactory<Employee, String>("date"));
 		eWorkingTime.setCellValueFactory(new PropertyValueFactory<Employee, String>("time"));
-		activity.setCellValueFactory(new PropertyValueFactory<Employee, Activity>("actName"));
+		activity.setCellValueFactory(new PropertyValueFactory<Employee, Activity>("activity"));
 		
 		employeeTable.setItems(employee);
 		employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime, activity);

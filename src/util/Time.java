@@ -69,12 +69,12 @@ public class Time {
 			int count = 0;
 			for(long i=sDate.getTimeInMillis(); i<eDate.getTimeInMillis(); i+=(activityPeriod*60*1000)){				
 				c.setTimeInMillis(i);
-				System.out.print(count + ". start: " + df2.format(c.getTime()));
+//				System.out.print(count + ". start: " + df2.format(c.getTime()));
 				start = df.format(c.getTime());
 				
 				long done = i+(activityPeriod*60*1000);
 				c.setTimeInMillis(done);
-				System.out.print(", end: " + df2.format(c.getTime()) + "\n");
+//				System.out.print(", end: " + df2.format(c.getTime()) + "\n");
 				end = df.format(c.getTime());
 				
 				//add to list for selection

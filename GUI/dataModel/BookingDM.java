@@ -9,15 +9,15 @@ import javafx.beans.property.*;
 
 public class BookingDM {
 	private final StringProperty bookDate;
-	private final StringProperty actName;
+	private final StringProperty activity;
 	private final StringProperty bookTime;
 	private final StringProperty bookEmployee;
 	private final StringProperty bookName;
 	
-	public BookingDM(String bookname, String bookdate, String actName, String booktime,String bookemployee){
+	public BookingDM(String bookname, String bookdate, String activity, String booktime,String bookemployee){
 		this.bookName = new SimpleStringProperty(bookname);
 		this.bookDate = new SimpleStringProperty(bookdate);
-		this.actName = new SimpleStringProperty(actName);
+		this.activity = new SimpleStringProperty(activity);
 		this.bookTime = new SimpleStringProperty(booktime);
 		this.bookEmployee = new SimpleStringProperty(bookemployee);
 	}
@@ -38,12 +38,12 @@ public class BookingDM {
 		this.bookDate.set(bookDate);
 	}
 	
-	public String getActName(){
-		return actName.get();
+	public String getActivity(){
+		return activity.get();
 	}
 	
-	public void setActName(String actName){
-		this.actName.set(actName);
+	public void setActivity(String activity){
+		this.activity.set(activity);
 	}
 	
 	public String getBookTime() {

@@ -74,7 +74,6 @@ public class AddEmployeeController {
 			
 			//getActivity
 			int temp = Integer.parseInt(activitySelect.getText());
-			activity = actList[temp];
 			
 			OwnerFunction.addEmployee(employee, activity);
 			

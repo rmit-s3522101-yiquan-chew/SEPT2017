@@ -1,2 +1,0 @@
-TestCustomer:01012001:Haircut:0100-0130:TestEmployee
-TestCustomer:01012001:Haircut:0100-0130:TestEmployee

@@ -20,7 +20,7 @@ public class OwnerFunction {
 		System.out.println("3. View Summaries booking"); 	//calculate the booking
 		System.out.println("4. View New booking");  		// show new booking
 		System.out.println("5. View available date times");
-		System.out.println("6. Add Employee activity and time");
+		System.out.println("6. Add activity and time");
 		System.out.println("7. Add booking");
 		System.out.println("0. Logout");
 		System.out.print("Please select a function:	");
@@ -145,7 +145,7 @@ public class OwnerFunction {
 			Activity[] activity = Data.ActivityDetails("activity.txt");
 			for(int i=0; i<activity.length; i++){
 				if(activity[i] != null)
-					System.out.println(i+". "+activity[i].getActivityname());
+					System.out.println(i+". "+activity[i].getActivityname() + ", duration: " + activity[i].getDuration() + "mins");
 			}
 			int selectActivity = Integer.parseInt(sc.nextLine());
 			
@@ -178,6 +178,9 @@ public class OwnerFunction {
 			FileWriter fw = new FileWriter("employee.txt",true);
 			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 			
+			//create employee time slot
+			boolean check = Time.registerTimeSlot(employee);
+						
 			/* a method from util.Time to 
 			 * print time slot and boolean (Stream) to "(EmployeeName + activity).txt
 			 * for booking
@@ -185,9 +188,6 @@ public class OwnerFunction {
 			 */
 			pw.println(employee.toString());
 			pw.close();
-			
-			//create employee time slot
-			boolean check = Time.registerTimeSlot(employee);
 			
 			return true;
 		}

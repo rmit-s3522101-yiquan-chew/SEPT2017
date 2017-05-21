@@ -1,2 +1,1 @@
-Haircut:15
-Haircolour:30
+Haircut:30
