@@ -16,11 +16,13 @@ APPOINTMENT BOOKING SYSTEM
 * *Tuesday 9:30-11:30*
 
 ### Running attention
-OwnerFunction.java:
-In the add employee part - 1. the working time format must be (HourMIn). Eg. 0800-1500
-                           2. the working date format must be (DDMMYYYY). Eg. 05052017
-			   3. When finish to create employee, it should need to refresh on whole project and that will display the 				      employee activity txtfile. Eg. select SEPT2017-master -> right click -> refresh. Then it can do for 				      booking
-		     In the add activity part - 1. the activity duration format must be minute. Eg. 15 or 30 
+OwnerFunction.java: 
+add employee part
+1. the working time format must be (HourMIn). Eg. 0800-1500
+2. the working date format must be (DDMMYYYY). Eg. 05052017
+3. When finish to create employee, it should need to refresh on whole project and that will display the 				employee activity txtfile. Eg. select SEPT2017-master -> right click -> refresh. Then it can do for 				      booking
+add activity part
+1. the activity duration format must be minute. Eg. 15 or 30 
 
 ### Synopsis
 
