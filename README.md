@@ -15,6 +15,13 @@ APPOINTMENT BOOKING SYSTEM
 ### Day/Time
 * *Tuesday 9:30-11:30*
 
+### Running attention
+OwnerFunction.java:
+In the add employee part - 1. the working time format must be (HourMIn). Eg. 0800-1500
+                           2. the working date format must be (DDMMYYYY). Eg. 05052017
+			   3. When finish to create employee, it should need to refresh on whole project and that will display the 				      employee activity txtfile. Eg. select SEPT2017-master -> right click -> refresh. Then it can do for 				      booking
+		     In the add activity part - 1. the activity duration format must be minute. Eg. 15 or 30 
+
 ### Synopsis
 
 *Our project named (Appointment Booking System) will be an online system, created to allow customers to book an appointment. This booking system is extremely user friendly catered to patients with or without online booking experience. We plan on delivering a newly way that patients can book their appoints without the hassle of walking into a clinic.*
