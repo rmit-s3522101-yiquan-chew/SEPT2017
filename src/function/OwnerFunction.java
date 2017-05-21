@@ -130,13 +130,13 @@ public class OwnerFunction {
 			System.out.println("Please enter Employee name");
 			String employeeName = sc.nextLine();
 			
-			System.out.println("Please enter Employee Business hours");
+			System.out.println("Please enter Employee Business hours (Eg. 6)");
 			String ebusinesshour = sc.nextLine();
 			
-			System.out.println("Please enter the working time (Hr/Min)");
+			System.out.println("Please enter the working time (HrMin Eg. 0800-1500)");
 			String newTime = sc.nextLine();
 			
-			System.out.println("Please enter the working date (DD/MM/YYYY)");
+			System.out.println("Please enter the working date (DDMMYYYY Eg. 05012017)");
 			String newDate = sc.nextLine();
 			
 			//Select activity
@@ -222,7 +222,7 @@ public class OwnerFunction {
 		String activityname = sc.nextLine();
 		
 		try{
-			System.out.println("Please enter the activity duration");
+			System.out.println("Please enter the activity duration (Min  Eg. 30)");
 			int duration = sc.nextInt();    
 	 		
 			addActivity(activityname, duration);

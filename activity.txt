@@ -1,1 +1,2 @@
 Haircut:30
+HairColor:30
