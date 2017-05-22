@@ -1,13 +1,17 @@
 package ownerFunctionGUI;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.*;
+import javafx.util.Callback;
 
 import java.io.IOException;
 
@@ -33,7 +37,7 @@ public class OwnerController {
 	@FXML private TableColumn<Employee, String> employeeName;
 	@FXML private TableColumn<Employee, String> eWorkingDate;
 	@FXML private TableColumn<Employee, String> eWorkingTime;
-	@FXML private TableColumn<Employee, Activity> activityName;
+	@FXML private TableColumn<Employee, String> activityName;
 	@FXML private Button addEmployee;
 	@FXML private Button addBooking;
 	
@@ -144,47 +148,63 @@ public class OwnerController {
 		ownerPhone.setText(owner.getCnumber());			
 	}
 	
-	public void employeeDetails() throws Exception{
+	public void employeeDetails(){
 		//display all employee details in table
-		final ObservableList<Employee> employee = FXCollections.observableArrayList(Data.employeeArray("employee.txt"));
-		
-		employeeTable.setEditable(true);
-		employeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("employeeName"));
-		eWorkingDate.setCellValueFactory(new PropertyValueFactory<Employee, String>("date"));
-		eWorkingTime.setCellValueFactory(new PropertyValueFactory<Employee, String>("time"));
-		activityName.setCellValueFactory(new PropertyValueFactory<Employee, Activity>("activity"));
-		
-		employeeTable.setItems(employee);
-		employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime, activityName);
+		ObservableList<Employee> employee;
+		try {
+			employee = FXCollections.observableArrayList(Data.employeeArray("employee.txt"));
+			employeeTable.setEditable(true);
+			employeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("employeeName"));
+			eWorkingDate.setCellValueFactory(new PropertyValueFactory<Employee, String>("date"));
+			eWorkingTime.setCellValueFactory(new PropertyValueFactory<Employee, String>("time"));
+			
+			activityName.setCellValueFactory(new PropertyValueFactory<Employee, String>("activity"));
+					
+			employeeTable.setItems(employee);
+			
+			employeeTable.getColumns().addAll(employeeName, eWorkingDate, eWorkingTime, activityName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 	public void allBookingDetails() throws Exception{
 		//display all booking
-		final ObservableList<Booking> booking = FXCollections.observableArrayList(Data.bookingDetails("booking.txt"));
-		
-		bookingTable.setEditable(true);
-		bookingCustomer.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookName"));
-		bookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookDate"));
-		bookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("activity"));
-		bookingTime.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookTime"));
-		bookingEmployee.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookEmployee"));
-		
-		bookingTable.setItems(booking);
-		bookingTable.getColumns().addAll(bookingCustomer, bookingDate, bookingActivity, bookingTime, bookingEmployee);
+		try{
+			final ObservableList<Booking> booking = FXCollections.observableArrayList(Data.bookingDetails("booking.txt"));
+			
+			bookingTable.setEditable(true);
+			bookingCustomer.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookName"));
+			bookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookDate"));
+			bookingActivity.setCellValueFactory(new PropertyValueFactory<Booking, String>("activity"));
+			bookingTime.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookTime"));
+			bookingEmployee.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookEmployee"));
+			
+			bookingTable.setItems(booking);
+			bookingTable.getColumns().addAll(bookingCustomer, bookingDate, bookingActivity, bookingTime, bookingEmployee);
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	//activity tab
 	//list activity
-	public void listActivity() throws IOException{
-		Activity[] activity = Data.ActivityDetails("activity.txt");
-		ObservableList<String> items = FXCollections.observableArrayList();
-		
-		for(int i=0; i<activity.length; i++){
-			if(activity[i] == null)
-				break;
-			items.add(i + ". " + activity[i].getActivityname() + "\t : " + activity[i].getDuration() + "min(s)");
+	public void listActivity(){
+		try{
+			Activity[] activity = Data.ActivityDetails("activity.txt");
+			ObservableList<String> items = FXCollections.observableArrayList();
+			
+			for(int i=0; i<activity.length; i++){
+				if(activity[i] == null)
+					break;
+				items.add(i + ". " + activity[i].getActivityname() + "\t : " + activity[i].getDuration() + "min(s)");
+			}
+			
+			activityList.setItems(items);
+		}catch (IOException ioe){
+			ioe.printStackTrace();
 		}
-		
-		activityList.setItems(items);
 	}	
 }

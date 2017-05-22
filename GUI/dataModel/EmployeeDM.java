@@ -20,7 +20,7 @@ public class EmployeeDM {
 		this.date = new SimpleStringProperty(date);
 		this.time = new SimpleStringProperty(time);
 		this.activity = new SimpleObjectProperty<Activity>(activity);
-		this.actName = new SimpleStringProperty(activity.getActivityname());
+		this.actName = new SimpleStringProperty(activity.toString());
 	}
 	
 	public String getEmployeeName() {

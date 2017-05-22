@@ -33,23 +33,7 @@ public class Time {
 	//ONLY USE ONCE PER ACTIVITY ADDED
 	public static boolean registerTimeSlot(Employee employee){
 		String[] time = (employee.getTime()).split("-");
-		Activity[] activityList;
-		Activity activity = null;
-		try {
-			activityList = Data.ActivityDetails("activity.txt");
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			return false;
-		}
-		
-		//search and match for activity
-		for(int i=0; i<activityList.length; i++){
-			if(activityList != null && activityList[i].getActivityname().equals((employee.getActivity()).getActivityname())){
-				activity = activityList[i];
-				break;
-			}
-		}
+		Activity activity = employee.getActivity();
 		
 		int activityPeriod = activity.getDuration();
 		
@@ -68,13 +52,11 @@ public class Time {
 			DateFormat df2 = new SimpleDateFormat("hh:mm a");
 			int count = 0;
 			for(long i=sDate.getTimeInMillis(); i<eDate.getTimeInMillis(); i+=(activityPeriod*60*1000)){				
-				c.setTimeInMillis(i);
-//				System.out.print(count + ". start: " + df2.format(c.getTime()));
+				c.setTimeInMillis(i);;
 				start = df.format(c.getTime());
 				
 				long done = i+(activityPeriod*60*1000);
 				c.setTimeInMillis(done);
-//				System.out.print(", end: " + df2.format(c.getTime()) + "\n");
 				end = df.format(c.getTime());
 				
 				//add to list for selection

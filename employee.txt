@@ -1,2 +1,1 @@
-John:8:01052017:0800-1200:Haircut
-Jacky:8:02052017:0830-1630:Haircut
+Jimmy:null:01012001:0800-1200:TestActivity1

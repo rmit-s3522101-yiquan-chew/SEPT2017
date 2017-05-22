@@ -25,7 +25,6 @@ public class AddEmployeeController {
 	private Stage dialogStage;
 	private Employee employee;
 	private Activity activity;
-	private Activity[] actList;
 	private boolean confirmClicked = false;
 	
 	@FXML
@@ -36,11 +35,6 @@ public class AddEmployeeController {
 	//set the stage of this dialog
 	public void setDialogStage(Stage dialogStage){
 		this.dialogStage = dialogStage;
-	}
-	
-	//set actList
-	public void setActList() throws IOException{
-		actList = Data.ActivityDetails("activity.txt");
 	}
 	
 	//list activity
@@ -64,7 +58,8 @@ public class AddEmployeeController {
 	
 	//handle confirm button
 	@FXML
-	private void handleConfirm(){
+	private void handleConfirm() throws IOException{
+		Activity[] actList = Data.ActivityDetails("activity.txt");
 		activity = new Activity(null, 0);
 		employee = new Employee(null, null, null, null, activity);
 		if(isInputValid()){
@@ -74,6 +69,8 @@ public class AddEmployeeController {
 			
 			//getActivity
 			int temp = Integer.parseInt(activitySelect.getText());
+			activity = actList[temp];
+			employee.setActivity(activity);
 			
 			OwnerFunction.addEmployee(employee, activity);
 			
