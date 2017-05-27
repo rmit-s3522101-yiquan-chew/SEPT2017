@@ -8,7 +8,7 @@
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
-        <directory>GUI</directory>
+        <directory>src</directory>
         <excludes>
           <exclude>**/*.java</exclude>
         </excludes>
@@ -23,6 +23,28 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+		<groupId>com.zenjava</groupId>
+		<artifactId>javafx-maven-plugin</artifactId>
+		<version>8.6.0</version>
+		<configuration>
+			<mainClass>GUI.gui.Main</mainClass>
+		</configuration>
+	  </plugin>
+	  <plugin>
+		<artifactId>maven-assembly-plugin</artifactId>
+		<configuration>
+			<archive>
+				<manifest>
+					<mainClass>GUI.gui.Main</mainClass>
+				</manifest>
+			</archive>
+			<descriptorRefs>
+				<descriptorRef>jar-with-dependencies</descriptorRef>
+			</descriptorRefs>
+			<appendAssemblyId>false</appendAssemblyId>
+		</configuration>
+	</plugin>    
     </plugins>
   </build>
   <description>This is an Appointment Booking System created by:
@@ -30,4 +52,11 @@ Yi Quan Chew - s3522101
 Leung Chun Ki Jenkin - s3444706
 Xiaohan Zeng - s3521491
 Andy Tiu - s3568041</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  	</dependency>
+  </dependencies>
 </project>
