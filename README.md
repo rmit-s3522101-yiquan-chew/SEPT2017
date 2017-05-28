@@ -98,10 +98,10 @@ public class MainpageTest {
 }
 ```
 ### Contributors
-* *Leung Chun Ki Jenkin - s3444706 Coding - Minor Functional Implementation, Sprint Backlog, Product Backlog, HOWTO.Document 25% Contribution* 
-* *Yi Quan Chew - s3522101 Coding -  Major Functional Implementation, Junit Testing, GUI Implementation   25% Contribution*
-* *Xiaohan Zeng - s3521491 Documentation - User Stories, Sprint Backlog, Prouct Backlog 		  25% Contribution*   
-* *Andy Tiu - s3568041 Documentation - Class Diagram, README.md, High Level Architecture Diagram 25% Contribution*
+* *Leung Chun Ki Jenkin - s3444706 Coding - Minor Functional Implementation, Sprint Backlog, Product Backlog, HOWTO.Document, User Manual, Design pattern, Class diagram 25% Contribution* 
+* *Yi Quan Chew - s3522101 Coding -  Major Functional Implementation, Junit Testing, GUI Implementation, Maven, Post Mortem, Installation Documentation   25% Contribution*
+* *Xiaohan Zeng - s3521491 Documentation - User Stories, Sprint Backlog, Prouct Backlog, Post Mortem 		  25% Contribution*   
+* *Andy Tiu - s3568041 Documentation - Class Diagram, README.md, High Level Architecture Diagram, Pitvh video, Unit test 25% Contribution*
 
 
 
